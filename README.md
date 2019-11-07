@@ -35,3 +35,20 @@ DgBook.architect-awesome
 
 > git push 远程库名 分支名
 > eg：git push gitee master
+
+
+
+# [Git Push 免输  用户名和密码](https://www.cnblogs.com/ysk123/p/9951443.html)
+
+
+
+
+
+ `git config --global credential.helper store` 
+
+
+
+[remote "gitee"]
+	url = https://gitee.com/PowerDG/Dg.KMS.Web.git
+	fetch = +refs/heads/*:refs/remotes/gitee/*
+	url = https://github.com/PowerDG/Dg.KMS.Web.git
