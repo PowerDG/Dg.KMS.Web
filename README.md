@@ -19,6 +19,10 @@ DgBook.architect-awesome
 
  git remote add gitee git@gitee.com/PowerDG/Dg.KMS.Web.git
 
+
+
+ git remote add hub https://github.com/PowerDG/Dg.KMS.Web.git
+
 1、首先通过 **git remote -v** 查看您要同步的仓库的远程库列表，如果在列表中没有您码云的远程库地址，您需要新增一个地址
 
 > git remote add 远程库名 远程库地址
