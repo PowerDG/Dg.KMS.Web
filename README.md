@@ -19,7 +19,7 @@ DgBook.architect-awesome
 
  git remote add gitee git@gitee.com/PowerDG/Dg.KMS.Web.git
 
-
+ git remote add gitee https://gitee.com/PowerDG/Dg.KMS.Web.git
 
  git remote add hub https://github.com/PowerDG/Dg.KMS.Web.git
 
