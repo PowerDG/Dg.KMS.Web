@@ -44,5 +44,14 @@ namespace InitModule
                 endpoints.MapControllers();
             });
         }
+
+
+        public IServiceProvider ConfigureServices(IServiceCollection services)
+        {
+            services.AddApplicationInsightsTelemetry(Configuration);
+            services.AddMvc();
+            return RegisterAutofac(services);
+        }
+
     }
 }
