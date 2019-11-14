@@ -27,16 +27,23 @@ namespace InitModule
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            ////注册数据库Gwglxs
+            ///https://www.cnblogs.com/qingzhen/p/11712457.html
+            //services.AddDbContext<GwglxsDbContext>(options =>
+            //            options.UseSqlServer(
+            //                Configuration.GetConnectionString("GwglxsConnection")
+            //            )//.UseLazyLoadingProxies()//懒加载,需要加载包：Microsoft.EntityFrameworkCore.Proxies
+            //        );
             services.AddAutofac(container =>
             {
                 container.RegisterType<MyClass>().SingleInstance();
             });
             services.AddControllers();
         }
-        public void ConfigureContainer(ContainerBuilder builder)
-        {
-            builder.RegisterType<MyClass>().SingleInstance();
-        }
+        //public void ConfigureContainer(ContainerBuilder builder)
+        //{
+        //    builder.RegisterType<MyClass>().SingleInstance();
+        //}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
