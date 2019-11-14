@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -24,7 +27,15 @@ namespace InitModule
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutofac(container =>
+            {
+                container.RegisterType<MyClass>().SingleInstance();
+            });
             services.AddControllers();
+        }
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterType<MyClass>().SingleInstance();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,12 +57,29 @@ namespace InitModule
         }
 
 
-        public IServiceProvider ConfigureServices(IServiceCollection services)
-        {
-            services.AddApplicationInsightsTelemetry(Configuration);
-            services.AddMvc();
-            return RegisterAutofac(services);
-        }
+        //public IServiceProvider ConfigureServices(IServiceCollection services)
+        //{
+        //    services.AddApplicationInsightsTelemetry(Configuration);
+        //    services.AddMvc();
+        //    return RegisterAutofac(services);
+        //}
+
+
+        //private IServiceProvider RegisterAutofac(IServiceCollection services)
+        //{
+        //    var builder = new ContainerBuilder();
+        //    builder.Populate(services);
+        //    var assembly = this.GetType().GetTypeInfo().Assembly;
+        //    builder.RegisterType<AopInterceptor>();
+        //    builder.RegisterAssemblyTypes(assembly)
+        //    .Where(type =>
+        //    typeof(IDependency).IsAssignableFrom(type) && !type.GetTypeInfo().IsAbstract)
+        //    .AsImplementedInterfaces()
+        //    .InstancePerLifetimeScope().EnableInterfaceInterceptors().InterceptedBy(typeof(AopInterceptor));
+        //    this.ApplicationContainer = builder.Build();
+        //    return new AutofacServiceProvider(this.ApplicationContainer);
+        //}
+
 
     }
 }
