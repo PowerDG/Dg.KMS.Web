@@ -18,6 +18,7 @@ namespace InitModule
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+              //.UseServiceProviderFactory(new AutofacServiceProviderFactory()) //Ôö¼Ó
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
