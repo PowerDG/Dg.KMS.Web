@@ -36,6 +36,9 @@ namespace Twelve
             //services.AddDbContext<BloggingContext>();
             //这里就是注入服务
             services.AddTransient<ITestService, TestService>();
+
+            services.AddScoped<ITestService2, TestService2>();
+            services.AddSingleton<ITestService3, TestService3>();
             services.AddDirectoryBrowser();
         }
 
