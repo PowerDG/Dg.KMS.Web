@@ -9,7 +9,7 @@ namespace Twelve.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DITestController : ApiController
+    public class DITestController : ControllerBase
     {
         private readonly ITestService _testService;
         private readonly ITestService2 _testService2;
@@ -20,7 +20,7 @@ namespace Twelve.Controllers
             _testService2 = testService2;
             _testService3 = testService3;
         }
-        public JsonResult Index([FromServices]ITestService testService11, [FromServices]ITestService2 testService22)
+        public List<object> Index([FromServices]ITestService testService11, [FromServices]ITestService2 testService22)
         {
             List<object> dict= new List<object>();
             dict.Add(_testService.GetList("")) ;
@@ -30,7 +30,7 @@ namespace Twelve.Controllers
             dict.Add( testService22.MyProperty);
             dict.Add( _testService3.MyProperty);
 
-            return Json(dict);
+            return dict;
         }
     }
 }
