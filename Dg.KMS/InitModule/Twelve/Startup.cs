@@ -27,20 +27,25 @@ namespace Twelve
         public ILifetimeScope ApplicationContainer { get; private set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        //public void ConfigureServices(IServiceCollection services)
-        //{
-
-        //    //services.AddApplicationInsightsTelemetry(Configuration);
-        //    services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-        //}
-
-
-        public IServiceProvider ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
+
             //services.AddApplicationInsightsTelemetry(Configuration);
+            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddMvc();
-            return RegisterAutofac(services);
+            //services.AddDbContext<BloggingContext>();
+            //这里就是注入服务
+            services.AddTransient<ITestService, TestService>();
+            services.AddDirectoryBrowser();
         }
+
+
+        //public IServiceProvider ConfigureServices(IServiceCollection services)
+        //{
+        //    //services.AddApplicationInsightsTelemetry(Configuration);
+        //    services.AddMvc();
+        //    return RegisterAutofac(services);
+        //}
         private IServiceProvider RegisterAutofac(IServiceCollection services)
         {
             var builder = new ContainerBuilder();
