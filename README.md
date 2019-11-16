@@ -6,6 +6,9 @@
 git remote -v
 
 git push hub 
+ 凡事有交代、件件有着落、事事有回音 
+
+
 
 ---
 
@@ -22,6 +25,11 @@ DgBook.architect-awesome
  git remote add my https://gitee.com/PowerDG/Dg.KMS.Web.git
 
  git remote add hub https://github.com/PowerDG/Dg.KMS.Web.git
+git pull origin master
+
+git push gitee master
+
+git push origin master
 
 1、首先通过 **git remote -v** 查看您要同步的仓库的远程库列表，如果在列表中没有您码云的远程库地址，您需要新增一个地址
 
