@@ -19,4 +19,11 @@ namespace KMS.Twelve.Test
             System.Diagnostics.Debug.WriteLine("方法执行完毕，返回结果：{0}", invocation.ReturnValue);
         }
     }
+    public class AopInterceptor : IInterceptor
+    {
+        public void Intercept(IInvocation invocation)
+        {
+
+        }
+    }
 }
