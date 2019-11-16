@@ -22,7 +22,7 @@ namespace KMS.Twelve
 
             //containerBuilder.RegisterType<AutoDIController>().PropertiesAutowired();
             builder.RegisterAssemblyTypes(typeof(AutoDIController).Assembly)
-                .Where(t => t.Name.EndsWith("Controller2") || t.Name.EndsWith("AppService"));
+                .Where(t => t.Name.EndsWith("Controller") || t.Name.EndsWith("AppService")).PropertiesAutowired();
             //builder.RegisterAssemblyTypes(typeof(StuEducationRepo).Assembly)
             //    .Where(t => t.Name.EndsWith("Repo"))
             //    .AsImplementedInterfaces().InstancePerLifetimeScope();
@@ -33,6 +33,8 @@ namespace KMS.Twelve
             //    .Where(t => t.Name.EndsWith("AppService"))
 
 
+            //属性注入控制器 
+            //containerBuilder.RegisterType<AutoDIController>().PropertiesAutowired();
 
             builder.Register(c => new AOPTest());
             //加上EnableInterfaceInterceptors来开启你的拦截.

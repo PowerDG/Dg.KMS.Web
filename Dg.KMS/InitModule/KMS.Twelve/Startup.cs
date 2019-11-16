@@ -27,7 +27,7 @@ namespace KMS.Twelve
         {
             Configuration = configuration;
         }
-
+        public static IContainer AutofacContainer;
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -41,18 +41,21 @@ namespace KMS.Twelve
 
             services.AddDirectoryBrowser();
             var containerBuilder = new ContainerBuilder();
-            //属性注入控制器 
-            containerBuilder.RegisterType<AutoDIController>().PropertiesAutowired();
+            ////属性注入控制器 
+            //containerBuilder.RegisterType<AutoDIController>().PropertiesAutowired();
 
  
 
             //模块化注入
             containerBuilder.RegisterModule<DefaultModule>();
+
+            containerBuilder.RegisterModule<DefaultModuleRegister>();
             //containerBuilder.RegisterTypes(Controllers.Select(ti => ti.AsType()).ToArray()).PropertiesAutowired();
             containerBuilder.Populate(services);
-
-            var container = containerBuilder.Build();
-            return new AutofacServiceProvider(container);
+            //创建容器.
+            AutofacContainer = containerBuilder.Build();
+            //使用容器创建 AutofacServiceProvider 
+            return new AutofacServiceProvider(AutofacContainer);
         }
 
 
@@ -73,7 +76,9 @@ namespace KMS.Twelve
         #endregion
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app
+            , IHostingEnvironment env
+            , IApplicationLifetime appLifetime)
         {
             if (env.IsDevelopment())
             {
@@ -81,7 +86,9 @@ namespace KMS.Twelve
             }
 
             app.UseMvc();
-        }
+            //程序停止调用函数
+            appLifetime.ApplicationStopped.Register(() => { AutofacContainer.Dispose(); });
+        } 
 
 
         public static void SetAutofacContainer()
