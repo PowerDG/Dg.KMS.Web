@@ -88,7 +88,24 @@ namespace KMS.Twelve
             app.UseMvc();
             //程序停止调用函数
             appLifetime.ApplicationStopped.Register(() => { AutofacContainer.Dispose(); });
-        } 
+        }
+
+
+
+        private IServiceProvider RegisterAutofac(IServiceCollection services)
+        {
+            var builder = new ContainerBuilder();
+            builder.Populate(services);
+            var assembly = this.GetType().GetTypeInfo().Assembly;
+            builder.RegisterType<AopInterceptor>();
+            builder.RegisterAssemblyTypes(assembly)
+            .Where(type =>
+            typeof(IDependency).IsAssignableFrom(type) && !type.GetTypeInfo().IsAbstract)
+            .AsImplementedInterfaces()
+            .InstancePerLifetimeScope().EnableInterfaceInterceptors().InterceptedBy(typeof(AopInterceptor));
+            AutofacContainer = builder.Build();
+            return new AutofacServiceProvider(AutofacContainer);
+        }
 
 
         public static void SetAutofacContainer()
