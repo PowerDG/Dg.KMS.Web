@@ -16,12 +16,19 @@ namespace KMS.Twelve.Controllers
         //private readonly ITestService _testService;
         public ITestService _testService { get; set; }
 
-        public AutoDIController(ITestService testService)
-        {
-            _testService = testService;
-        }
+        //public AutoDIController(ITestService testService)
+        //{
+        //    _testService = testService;
+        //}
 
-        // GET: AutoDI
+        // GET: AutoDI 
+        /// <summary>
+        /// /ASP.NET Core中使用IOC三部曲
+        /// https://www.cnblogs.com/GuZhenYin/p/8301500.html
+        /// https://www.cnblogs.com/GuZhenYin/p/8297145.html
+        /// https://www.cnblogs.com/GuZhenYin/p/8309645.html
+        /// </summary>
+        /// <returns></returns>
         public List<string> Index()
         {
             var date = _testService.GetList("Name");

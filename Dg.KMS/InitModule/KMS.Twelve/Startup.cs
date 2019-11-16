@@ -43,6 +43,21 @@ namespace KMS.Twelve
             //属性注入控制器 
             containerBuilder.RegisterType<AutoDIController>().PropertiesAutowired();
 
+
+            //containerBuilder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            //containerBuilder.RegisterType<InMemoryCache>().As<ICache>().InstancePerLifetimeScope();
+
+            containerBuilder.RegisterAssemblyTypes(typeof(StuEducationAppService).Assembly)
+                .Where(t => t.Name.EndsWith("AppService"))
+            //containerBuilder.RegisterAssemblyTypes(typeof(StuEducationRepo).Assembly)
+            //    .Where(t => t.Name.EndsWith("Repo"))
+            //    .AsImplementedInterfaces().InstancePerLifetimeScope();
+            //containerBuilder.RegisterAssemblyTypes(typeof(StudentRegisterDmnService).Assembly)
+            //    .Where(t => t.Name.EndsWith("DmnService"))
+            //    .AsImplementedInterfaces().InstancePerLifetimeScope();
+            //containerBuilder.RegisterAssemblyTypes(typeof(StuEducationAppService).Assembly)
+            //    .Where(t => t.Name.EndsWith("AppService"))
+
             //containerBuilder.RegisterTypes(Controllers.Select(ti => ti.AsType()).ToArray()).PropertiesAutowired();
             containerBuilder.Populate(services);
 
