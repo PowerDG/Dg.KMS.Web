@@ -10,15 +10,16 @@ namespace KMS.Twelve.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AutoDIController : ControllerBase// Controller
+    public class AutoDIController : ControllerBase
     {
 
-        public ITestService _testService;
+        //private readonly ITestService _testService;
+        public ITestService _testService { get; set; }
 
-        //public AutoDIController(ITestService testService)
-        //{
-        //    _testService = testService;
-        //}
+        public AutoDIController(ITestService testService)
+        {
+            _testService = testService;
+        }
 
         // GET: AutoDI
         public List<string> Index()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autofac.Extras.DynamicProxy;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -33,9 +34,10 @@ namespace KMS.Twelve.Test
         List<string> GetList();
     }
     #endregion
-   
+
 
     #region MyRegion
+    [Intercept(typeof(AOPTest))]
     public class TestService : ITestService
     {
         public TestService()

@@ -43,7 +43,7 @@ namespace KMS.Twelve
             //属性注入控制器 
             containerBuilder.RegisterType<AutoDIController>().PropertiesAutowired();
 
-            // containerBuilder.RegisterTypes(feature.Controllers.Select(ti => ti.AsType()).ToArray()).PropertiesAutowired();
+            //containerBuilder.RegisterTypes(Controllers.Select(ti => ti.AsType()).ToArray()).PropertiesAutowired();
             containerBuilder.Populate(services);
 
             var container = containerBuilder.Build();
