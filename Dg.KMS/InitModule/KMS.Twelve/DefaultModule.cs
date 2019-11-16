@@ -9,7 +9,10 @@ namespace KMS.Twelve
         {
 
             ////注入测试服务
-            builder.RegisterType<TestService>().As<ITestService>();
+            //builder.RegisterType<TestService>().As<ITestService>();
+
+            //属性注入
+            builder.RegisterType<TestService>().As<ITestService>().PropertiesAutowired();
 
         }
     }
