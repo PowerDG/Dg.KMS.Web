@@ -1,5 +1,7 @@
  
 
+ Autofac.Extensions.DependencyInjection
+
  Autofac.Extras.DynamicProxy 
 
  Castle.Core 
