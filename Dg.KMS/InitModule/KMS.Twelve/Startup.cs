@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using System.Web.Http;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Autofac.Integration.WebApi;
 using KMS.Twelve.Controllers;
 using KMS.Twelve.Test;
 using Microsoft.AspNetCore.Builder;
@@ -38,26 +41,13 @@ namespace KMS.Twelve
 
             services.AddDirectoryBrowser();
             var containerBuilder = new ContainerBuilder();
-            //模块化注入
-            containerBuilder.RegisterModule<DefaultModule>();
             //属性注入控制器 
             containerBuilder.RegisterType<AutoDIController>().PropertiesAutowired();
 
+ 
 
-            //containerBuilder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-            //containerBuilder.RegisterType<InMemoryCache>().As<ICache>().InstancePerLifetimeScope();
-
-            containerBuilder.RegisterAssemblyTypes(typeof(StuEducationAppService).Assembly)
-                .Where(t => t.Name.EndsWith("AppService"))
-            //containerBuilder.RegisterAssemblyTypes(typeof(StuEducationRepo).Assembly)
-            //    .Where(t => t.Name.EndsWith("Repo"))
-            //    .AsImplementedInterfaces().InstancePerLifetimeScope();
-            //containerBuilder.RegisterAssemblyTypes(typeof(StudentRegisterDmnService).Assembly)
-            //    .Where(t => t.Name.EndsWith("DmnService"))
-            //    .AsImplementedInterfaces().InstancePerLifetimeScope();
-            //containerBuilder.RegisterAssemblyTypes(typeof(StuEducationAppService).Assembly)
-            //    .Where(t => t.Name.EndsWith("AppService"))
-
+            //模块化注入
+            containerBuilder.RegisterModule<DefaultModule>();
             //containerBuilder.RegisterTypes(Controllers.Select(ti => ti.AsType()).ToArray()).PropertiesAutowired();
             containerBuilder.Populate(services);
 
@@ -91,6 +81,34 @@ namespace KMS.Twelve
             }
 
             app.UseMvc();
+        }
+
+
+        public static void SetAutofacContainer()
+        {
+        //https://blog.csdn.net/weixin_30614587/article/details/98129699
+            var builder = new ContainerBuilder();
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            //builder.RegisterType<InMemoryCache>().As<ICache>().InstancePerLifetimeScope();
+
+            builder.RegisterAssemblyTypes(typeof(AutoDIController).Assembly)
+                .Where(t => t.Name.EndsWith("Controller2") || t.Name.EndsWith("AppService"))
+            //builder.RegisterAssemblyTypes(typeof(StuEducationRepo).Assembly)
+            //    .Where(t => t.Name.EndsWith("Repo"))
+            //    .AsImplementedInterfaces().InstancePerLifetimeScope();
+            //builder.RegisterAssemblyTypes(typeof(StudentRegisterDmnService).Assembly)
+            //    .Where(t => t.Name.EndsWith("DmnService"))
+            //    .AsImplementedInterfaces().InstancePerLifetimeScope();
+            //builder.RegisterAssemblyTypes(typeof(StuEducationAppService).Assembly)
+            //    .Where(t => t.Name.EndsWith("AppService"))
+                .AsImplementedInterfaces().InstancePerLifetimeScope();
+
+            builder.RegisterWebApiFilterProvider(GlobalConfiguration.Configuration);
+            IContainer container = builder.Build();
+            var resolver = new AutofacWebApiDependencyResolver(container);
+
+            // Configure Web API with the dependency resolver.
+            GlobalConfiguration.Configuration.DependencyResolver = resolver;
         }
     }
 }
