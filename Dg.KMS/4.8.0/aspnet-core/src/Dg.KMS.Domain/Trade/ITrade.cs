@@ -6,6 +6,49 @@ namespace Dg.KMS.Domain.Trade
 {
     interface ITrade
     {
+        #region Base基本信息
+
+        /// <summary>
+        /// 订单ID
+        /// </summary>
+         int OrderId { get; set; }
+        /// <summary>
+        /// 订单状态
+        /// </summary>
+        // string Status
+        //{
+        //    get { return this._status; }
+        //    set
+        //    {
+        //        this._status = value;
+        //        this.StatusValue = this.ParseToEnum<OrderStatusEnum>(value);
+        //    }
+        //}
+        /// <summary>
+        /// 订单状态值
+        ///// </summary>
+        //[JsonIgnore]
+        // OrderStatusEnum StatusValue { get; set; }
+        /// <summary>
+        /// 订单类型
+        /// </summary>
+         string OrderType { get; set; }
+        /// <summary>
+        /// 订单渠道
+        /// </summary>
+         string OrderChannel { get; set; }
+
+        /// <summary>
+        /// 外联单号
+        /// </summary>
+         string Refno { get; set; }
+        /// <summary>
+        /// 订单主人
+        /// </summary>
+         string Owner { get; set; }
+
+
+        #endregion
     }
 
     interface IDelivery
@@ -13,28 +56,7 @@ namespace Dg.KMS.Domain.Trade
 
     }
 
-    interface IInstallShop
-    {
-        #region 安装与门店
-
-        /// <summary>
-        /// 安装门店编号
-        /// </summary>
-        public int? InstallShopId { get; set; }
-
-        /// <summary>
-        /// 配送状态
-        /// </summary>
-        public string DeliveryStatus { get; set; }
-        /// <summary>
-        /// 安装状态
-        /// </summary>
-        public string InstallStatus { get; set; }
-
-        #endregion
-
-
-    }
+ 
 
     interface IPurchaseProductItem
     {
@@ -75,7 +97,7 @@ namespace Dg.KMS.Domain.Trade
         //decimal CostPrice { set; get; }
     }
 
-    public interface IHasVendor
+     interface IHasVendor
     {
 
         //供应商
@@ -87,7 +109,7 @@ namespace Dg.KMS.Domain.Trade
         int BatchId { get; set; }
         int ProductBatchId { get; set; }
     }
-    public interface IHasOwnerOfProduct
+     interface IHasOwnerOfProduct
     {
         //货主
         int OwnerId { get; set; }
