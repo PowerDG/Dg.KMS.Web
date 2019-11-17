@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace KMS.Twelve.Domain.User
+﻿namespace KMS.Twelve.Domain.User
 {
     public interface IUserManager
     {
