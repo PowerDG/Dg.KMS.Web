@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Research.TradingOrder
 {
@@ -12,7 +13,7 @@ namespace Research.TradingOrder
     {
     }
 
-     class OrderModel// : BaseModel
+     public class OrderModel// : BaseModel
     {
          OrderModel()
         {
@@ -335,8 +336,7 @@ namespace Research.TradingOrder
             //    {
             //        OrderTagInfo = null;
             //    }
-            }
-        }
+            } 
 
         private IEnumerable<OrderTag> ordertags = null;
         /// <summary>
@@ -508,7 +508,7 @@ namespace Research.TradingOrder
          OrderListExtModel ExtInfo { get; set; }
     }
 
-     class OrderAddressModel // : BaseModel
+    public class OrderAddressModel // : BaseModel
     {
          int Pkid { get; set; }
         [Display(Name = "订单号")]
@@ -744,7 +744,7 @@ namespace Research.TradingOrder
 
     #endregion
 
-    [JsonConverter(typeof(StringEnumConverter))]
+    //[JsonConverter(typeof(StringEnumConverter))]
      enum OrderTag
     {
         缺货预订,

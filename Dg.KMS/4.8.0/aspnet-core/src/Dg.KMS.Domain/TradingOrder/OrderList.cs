@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 using System.Text.Json.Serialization;
+using JsonIgnoreAttribute = Newtonsoft.Json.JsonIgnoreAttribute;
 
 namespace Research.TradingOrder
 {
@@ -293,7 +294,7 @@ namespace Research.TradingOrder
 
         /// <summary>扩展信息</summary>
         //[JsonColumn]
-        public OrderListExtModel ExtInfo { get; set; }
+        //public OrderListExtModel ExtInfo { get; set; }
 
         #endregion
 
