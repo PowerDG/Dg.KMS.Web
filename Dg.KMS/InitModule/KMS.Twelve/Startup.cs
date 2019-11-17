@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Autofac.Extras.DynamicProxy;
 using Autofac.Integration.WebApi;
 using KMS.Twelve.Controllers;
 using KMS.Twelve.Test;
