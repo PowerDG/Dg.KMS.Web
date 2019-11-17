@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using System.Web.Http;
-using Autofac;
+﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Autofac.Extras.DynamicProxy;
 using Autofac.Integration.WebApi;
@@ -12,13 +6,14 @@ using KMS.Twelve.Controllers;
 using KMS.Twelve.Test;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using System;
+using System.Linq;
+using System.Reflection;
+using System.Web.Http;
 
 namespace KMS.Twelve
 {
@@ -45,7 +40,7 @@ namespace KMS.Twelve
             ////属性注入控制器 
             //containerBuilder.RegisterType<AutoDIController>().PropertiesAutowired();
 
- 
+
 
             //模块化注入
             containerBuilder.RegisterModule<DefaultModule>();
@@ -111,7 +106,7 @@ namespace KMS.Twelve
 
         public static void SetAutofacContainer()
         {
-        //https://blog.csdn.net/weixin_30614587/article/details/98129699
+            //https://blog.csdn.net/weixin_30614587/article/details/98129699
             var builder = new ContainerBuilder();
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             //builder.RegisterType<InMemoryCache>().As<ICache>().InstancePerLifetimeScope();

@@ -17,7 +17,7 @@ System.ComponentModel.TypeConverter
 	bare = false
 	logallrefupdates = true
 	symlinks = false
-	ignorecase = true
+	ignorecase = tru e
 [submodule]
 	active = .
 [remote "origin"]

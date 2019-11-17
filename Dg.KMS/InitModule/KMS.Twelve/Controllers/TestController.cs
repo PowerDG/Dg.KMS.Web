@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using KMS.Twelve.Test;
-using Microsoft.AspNetCore.Http;
+﻿using KMS.Twelve.Test;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace KMS.Twelve.Controllers
 {
