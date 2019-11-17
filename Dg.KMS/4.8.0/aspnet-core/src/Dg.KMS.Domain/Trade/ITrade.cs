@@ -53,7 +53,9 @@ namespace Dg.KMS.Domain.Trade
 
     interface IDelivery
     {
-
+         DateTime DeliveryDatetime { get; set; }
+         int OrderId { get; set; }
+         string DeliveryStatus { get; set; }
     }
 
  

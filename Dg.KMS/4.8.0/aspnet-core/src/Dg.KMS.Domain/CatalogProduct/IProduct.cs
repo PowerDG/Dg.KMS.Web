@@ -19,9 +19,9 @@ namespace Dg.KMS.Domain.CatalogProduct
     }
     interface ProductWareHouse
     {
-        public int WareHouseId { get; set; }
-        public string WareHouseName { get; set; }
-        public string OrderProductType { set; get; }
+          int WareHouseId { get; set; }
+          string WareHouseName { get; set; }
+          string OrderProductType { set; get; }
 
     }
     interface IProduct
@@ -293,7 +293,7 @@ namespace Dg.KMS.Domain.CatalogProduct
           decimal NoTaxCost { get; set; }
 
         /// <summary>
-        /// 不含税途虎成本
+        /// 不含税 成本
         /// </summary>
           decimal NoTaxTuhuCost { get; set; }
         #endregion

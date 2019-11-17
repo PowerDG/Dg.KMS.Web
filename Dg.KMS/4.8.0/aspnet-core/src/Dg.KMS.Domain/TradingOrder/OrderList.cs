@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Research.TradingOrder
 {
@@ -335,7 +336,7 @@ namespace Research.TradingOrder
         public decimal NoTaxCost { get; set; }
 
         /// <summary>
-        /// 不含税途虎成本
+        /// 不含税 成本
         /// </summary>
         public decimal NoTaxTuhuCost { get; set; }
         #endregion

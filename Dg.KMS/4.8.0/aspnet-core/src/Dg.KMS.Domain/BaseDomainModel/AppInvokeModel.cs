@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace Research
 {
@@ -145,7 +146,7 @@ namespace Research
     {
         未知 = 0,
         [Description("1ShopInstall")]
-        途虎自送,
+         自送,
         [Description("2Express")]
         快递,
         [Description("3Logistic")]
@@ -153,7 +154,7 @@ namespace Research
         [Description("4NoDelivery")]
         无需配送,
         [Description("5TuHuSent")]
-        途虎自己送货上门
+         自己送货上门
     }
     /// <summary>
     /// 配送Status
@@ -270,7 +271,7 @@ namespace Research
 
 
         [Description("10TuHu")]
-        途虎上门收款,
+         上门收款,
 
 
         [Description("aWeiXin")]
@@ -307,15 +308,15 @@ namespace Research
     {
         未知 = 0,
         [Description("0TuhuPos")]
-        刷途虎POS机,
+        刷POS机,
         [Description("1PayCashAtShop")]
         门店车主付款给门店,
         [Description("2DeliverCollect")]
         快递上门收款,
         [Description("3THCollect")]
-        途虎上门收款,
+         上门收款,
         [Description("4OtherToTH")]
-        其他转账给途虎,
+        其他转账给 ,
         [Description("5Special")]
         特殊或多种渠道,
     }
