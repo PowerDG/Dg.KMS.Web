@@ -16,6 +16,7 @@ namespace KMS.Twelve.Test
     }
 
     #region ITestService
+
     public class InjectionTestService : IService
     {
         public string Test()
@@ -23,25 +24,36 @@ namespace KMS.Twelve.Test
             return "Success";
         }
     }
+
+    public interface IService
+    {
+    }
+
     public interface ITestService
     {
         Guid MyProperty { get; }
+
         List<string> GetList(string a);
     }
+
     public interface ITestService2
     {
         Guid MyProperty { get; }
+
         List<string> GetList();
     }
+
     public interface ITestService3
     {
         Guid MyProperty { get; }
+
         List<string> GetList();
     }
-    #endregion
 
+    #endregion ITestService
 
     #region MyRegion
+
     [Intercept(typeof(AOPTest))]
     public class TestService : ITestService
     {
@@ -49,7 +61,9 @@ namespace KMS.Twelve.Test
         {
             MyProperty = Guid.NewGuid();
         }
+
         public Guid MyProperty { get; set; }
+
         public List<string> GetList(string a)
         {
             return new List<string>() { "LiLei", "ZhangSan", "LiSi" };
@@ -62,24 +76,29 @@ namespace KMS.Twelve.Test
         {
             MyProperty = Guid.NewGuid();
         }
+
         public Guid MyProperty { get; set; }
+
         public List<string> GetList()
         {
             return new List<string>() { "LiLei", "ZhangSan", "LiSi" };
         }
     }
+
     public class TestService3 : ITestService3
     {
-
         public TestService3()
         {
             MyProperty = Guid.NewGuid();
         }
+
         public Guid MyProperty { get; set; }
+
         public List<string> GetList()
         {
             return new List<string>() { "LiLei", "ZhangSan", "LiSi" };
         }
     }
-    #endregion
+
+    #endregion MyRegion
 }
