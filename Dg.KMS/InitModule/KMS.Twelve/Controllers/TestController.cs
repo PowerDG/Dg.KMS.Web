@@ -11,11 +11,17 @@ namespace KMS.Twelve.Controllers
         private readonly ITestService _testService;
         private readonly ITestService2 _testService2;
         private readonly ITestService3 _testService3;
-        public TestController(ITestService testService, ITestService2 testService2, ITestService3 testService3)
+
+        private readonly IService _testInService;
+        public TestController(ITestService testService
+            , ITestService2 testService2
+            , ITestService3 testService3
+            , IService testInService)
         {
             _testService = testService;
             _testService2 = testService2;
             _testService3 = testService3;
+            _testInService = testInService;
         }
         //http://localhost:5000/api/DITest
 
