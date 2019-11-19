@@ -27,8 +27,19 @@ namespace KMS.Twelve
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// ASP.NET Core中的Autofac 
+        /// 首先在Project.json的Dependency节点为中添加如下引用： 
+        /// "Microsoft.Extensions.DependencyInjection": "1.0.0", 
+        /// "Autofac.Extensions.DependencyInjection": "4.0.0", 
+        /// 接着我们也修改Startup文件中的ConfigureServices方法，为了接管默认的DI，我们要为函数添加返回值AutofacServiceProvider;
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+
+            //services.AddApplicationInsightsTelemetry(Configuration);
             //替换控制器所有者
             services.Replace(ServiceDescriptor.Transient<IControllerActivator, ServiceBasedControllerActivator>());
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -52,6 +63,7 @@ namespace KMS.Twelve
             AutofacContainer = containerBuilder.Build();
             //使用容器创建 AutofacServiceProvider 
             return new AutofacServiceProvider(AutofacContainer);
+            //return RegisterAutofac(services);
         }
 
 
@@ -87,7 +99,16 @@ namespace KMS.Twelve
         }
 
 
+        /// <summary>
+        /// NET Core 整合Autofac和Castle
+        /// https://www.cnblogs.com/Leo_wl/p/5936941.html
+        /// ASP.NET Core 整合Autofac和Castle实现自动AOP拦截 (2016-10-17 13:15:12)
+        /// http://blog.sina.com.cn/s/blog_16544e8090102x922.html
+        /// 
 
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
         private IServiceProvider RegisterAutofac(IServiceCollection services)
         {
             var builder = new ContainerBuilder();
