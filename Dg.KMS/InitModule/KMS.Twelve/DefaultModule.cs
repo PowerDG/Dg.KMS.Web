@@ -37,6 +37,9 @@ namespace KMS.Twelve
             /* BuildManager.GetReferencedAssemblies()
              * 程序集的集合，包含 Web.config 文件的 assemblies 元素中指定的程序集、
              * 从 App_Code 目录中的自定义代码生成的程序集以及其他顶级文件夹中的程序集。
+             * 
+             * 依赖注入之Autofac使用总结
+             * https://www.cnblogs.com/struggle999/p/6986903.html
              */
 
             // 获取包含继承了IService接口类的程序集
