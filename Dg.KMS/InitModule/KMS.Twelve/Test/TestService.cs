@@ -16,6 +16,13 @@ namespace KMS.Twelve.Test
     }
 
     #region ITestService
+    public class InjectionTestService : IService
+    {
+        public string Test()
+        {
+            return "Success";
+        }
+    }
     public interface ITestService
     {
         Guid MyProperty { get; }
