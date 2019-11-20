@@ -13,6 +13,7 @@ namespace KMS.Twelve.Controllers
         private readonly ITestService3 _testService3;
 
         private readonly IService _testInService;
+
         public TestController(ITestService testService
             , ITestService2 testService2
             , ITestService3 testService3
@@ -23,6 +24,7 @@ namespace KMS.Twelve.Controllers
             _testService3 = testService3;
             _testInService = testInService;
         }
+
         //http://localhost:5000/api/DITest
 
         /// <summary>
@@ -40,7 +42,6 @@ namespace KMS.Twelve.Controllers
             dict.Add(_testService2.MyProperty);
             dict.Add(testService22.MyProperty);
             dict.Add(_testService3.MyProperty);
-
 
             return dict;
         }

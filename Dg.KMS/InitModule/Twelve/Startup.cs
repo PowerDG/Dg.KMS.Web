@@ -24,7 +24,6 @@ namespace Twelve
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             //services.AddApplicationInsightsTelemetry(Configuration);
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddMvc();
@@ -36,7 +35,6 @@ namespace Twelve
             services.AddSingleton<ITestService3, TestService3>();
             services.AddDirectoryBrowser();
         }
-
 
         //public IServiceProvider ConfigureServices(IServiceCollection services)
         //{
