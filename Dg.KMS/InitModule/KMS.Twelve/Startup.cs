@@ -3,6 +3,7 @@ using Autofac.Extensions.DependencyInjection;
 using Autofac.Extras.DynamicProxy;
 using Autofac.Integration.WebApi;
 using KMS.Twelve.Controllers;
+using KMS.Twelve.Message;
 using KMS.Twelve.Test;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -63,7 +64,12 @@ namespace KMS.Twelve
 
             //模块化注入
             containerBuilder.RegisterModule<DefaultModule>();
-
+            typeof(IMessage).Assembly.GetTypes()
+                .Where(t => t.GetInterfaces().Contains(typeof(IMessage)))
+                .ForEach(type =>
+                {  containerBuilder.RegisterType(type);
+                    //builder.RegisterType<type>();   // 注册type
+                 });    
             containerBuilder.RegisterModule<DefaultModuleRegister>();
             //containerBuilder.RegisterTypes(Controllers.Select(ti => ti.AsType()).ToArray()).PropertiesAutowired();
             containerBuilder.Populate(services);
