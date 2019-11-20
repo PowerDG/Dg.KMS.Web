@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
 using KMS.Twelve.Controllers;
+using KMS.Twelve.Message;
 using KMS.Twelve.Test;
 using System.Linq;
 using System.Reflection;
@@ -76,6 +77,18 @@ namespace KMS.Twelve
             //加上EnableInterfaceInterceptors来开启你的拦截.
             builder.RegisterType<TestService>().As<ITestService>()
                 .PropertiesAutowired().EnableInterfaceInterceptors();
+
+
+                        typeof(IMessage).Assembly.GetTypes()
+            .Where(t => t.GetInterfaces().Contains(typeof(IMessage))).ToList()
+            .ForEach(type =>
+            {
+                builder.RegisterAssemblyTypes(type);
+                //builder.RegisterType<type>();
+                // 注册type
+            });
+
+
         }
     }
 }
