@@ -64,12 +64,7 @@ namespace KMS.Twelve
 
             //模块化注入
             containerBuilder.RegisterModule<DefaultModule>();
-            typeof(IMessage).Assembly.GetTypes()
-                .Where(t => t.GetInterfaces().Contains(typeof(IMessage)))
-                .ForEach(type =>
-                {  containerBuilder.RegisterType(type);
-                    //builder.RegisterType<type>();   // 注册type
-                 });    
+
             containerBuilder.RegisterModule<DefaultModuleRegister>();
             //containerBuilder.RegisterTypes(Controllers.Select(ti => ti.AsType()).ToArray()).PropertiesAutowired();
             containerBuilder.Populate(services);
