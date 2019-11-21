@@ -44,8 +44,8 @@ namespace KMS.Twelve
                 .Select(Assembly.Load)
                 .Where(
                     assembly =>
-                        assembly.GetTypes().FirstOrDefault(type => type.GetInterfaces().Contains(typeof(IService))) !=
-                        null
+                        assembly.GetTypes().FirstOrDefault(type => type.GetInterfaces()
+                            .Contains(typeof(IService))) != null
                 );
 
             // RegisterAssemblyTypes 注册程序集
@@ -83,7 +83,7 @@ namespace KMS.Twelve
             .Where(t => t.GetInterfaces().Contains(typeof(IMessage))).ToList()
             .ForEach(type =>
             {
-                builder.RegisterAssemblyTypes(type);
+                builder.RegisterType(type);
                 //builder.RegisterType<type>();
                 // 注册type
             });
