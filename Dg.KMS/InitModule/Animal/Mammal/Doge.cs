@@ -12,9 +12,4 @@ namespace Animal.Mammal
             Console.WriteLine("我是小狗，汪汪汪~");
         }
     }
-    public class Person
-    {
-        public string Name { get; set; }
-        public int Age { get; set; }
-    }
 }
