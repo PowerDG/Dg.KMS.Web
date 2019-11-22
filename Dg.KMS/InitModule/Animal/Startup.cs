@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using System.Web.Http;
+using System.Web.Mvc;
 using Animal.Mammal;
 using Autofac;
 using Autofac.Features.Indexed;
+using Autofac.Integration.Mvc;
+using Autofac.Integration.WebApi;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -34,6 +39,24 @@ namespace Animal
 
 
 
+
+        }
+
+        public void RegisterPerson()
+        {
+
+            //注册IOC容器
+            var builder = new ContainerBuilder();
+            //告诉autofac将来要创建的控制器类存放在哪个程序集
+            builder.RegisterControllers(Assembly.GetExecutingAssembly());//注册MVC控制器
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());//注册WebAPI控制器
+                                                                            //注册Repository和Service
+            builder.RegisterType<PersonRepository>().As<IRepository>().InstancePerDependency();
+            builder.RegisterType<PersonService>().As<IService>().InstancePerDependency();
+            var container = builder.Build();
+            //将当前容器交给MVC底层，保证容器不被销毁，控制器由autofac来创建
+            GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);//先给WebAPI注册
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));//再给MVC注册
 
         }
 
