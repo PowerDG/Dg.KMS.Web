@@ -28,9 +28,34 @@ namespace Animal
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            //RegisterContainer();
+            RegisterContainer2();
 
 
 
+
+
+        }
+
+        public void RegisterContainer2()
+        {
+            var builder = new ContainerBuilder();//准备容器
+
+            builder.RegisterType<Person>().UsingConstructor(typeof(string));
+
+            var container = builder.Build();//创建容器完毕
+            //var doge = container.Resolve<Person>();//通过IOC容器创建对象
+            //doge.SayHello();
+            
+            List<NamedParameter> pars = new List<NamedParameter>()
+            { new NamedParameter("Age", 20), new NamedParameter("Name", "张三") };
+            builder.RegisterType<Person>().WithParameters(pars);　
+
+        }
+
+
+        public void RegisterContainer()
+        {
             var builder = new ContainerBuilder();//准备容器
             builder.RegisterType<Doge>();//注册对象
 
@@ -79,18 +104,15 @@ namespace Animal
             adog.SayHello();
             var doge = container.Resolve<Doge>();//通过IOC容器创建对象
             doge.SayHello();
-            //var animal = container.Resolve<IIndex<AnumalType, IAnimal>>();
-            //var cat = animal[AnumalType.Cat];
-            //cat.SayHello();
-
             var dog = container.ResolveNamed<IAnimal>("pig");//通过IOC容器创建对象
             dog.SayHello();
             var dogAble = container.ResolveKeyed<IAnimal>(AnumalType.Cat);//通过IOC容器创建对象
             dogAble.SayHello();
 
-
+            var animal = container.Resolve<IIndex<AnumalType, IAnimal>>();
+            var cat = animal[AnumalType.Cat];
+            cat.SayHello();
         }
-
 
         public enum AnumalType
         {
