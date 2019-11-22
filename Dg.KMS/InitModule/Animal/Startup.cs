@@ -33,9 +33,6 @@ namespace Animal
 
             var builder = new ContainerBuilder();//准备容器
             builder.RegisterType<Doge>();//注册对象
-            var container = builder.Build();//创建容器完毕
-            var doge = container.Resolve<Doge>();//通过IOC容器创建对象
-            doge.SayHello();
 
 
             builder.RegisterInstance(new Doge());//实例注入
@@ -43,43 +40,53 @@ namespace Animal
             //builder.RegisterInstance(Singleton.GetInstance()).ExternallyOwned();//将单例对象托管到IOC容器
 
 
-            builder.Register(c => new Person() { Name = "张三", Age = 20 });//Lambda表达式创建
-            Person p1 = container.Resolve<Person>();
-            builder.Register(c => new Person() { Name = "张三", Age = 20 });//Lambda表达式创建
-            Person p2 = container.Resolve<Person>();
+            //builder.Register(c => new Person() { Name = "张三", Age = 20 });//Lambda表达式创建
+            //Person p1 = container.Resolve<Person>();
+            //builder.Register(c => new Person() { Name = "张三", Age = 20 });//Lambda表达式创建
+            //Person p2 = container.Resolve<Person>();
 
             builder.RegisterGeneric(typeof(List<>));
-            List<string> list = container.Resolve<List<string>>();
 
 
             //var builder = new ContainerBuilder();//准备容器
             builder.RegisterType<Doge>().As<IAnimal>();//映射对象
             //如果一个类型被多次注册,以最后注册的为准。
-            //通过使用PreserveExistingDefaults() 修饰符，可以指定某个注册为非默认值。
-            builder.RegisterType<Cat>().As<IAnimal>().PreserveExistingDefaults();//指定Cat为非默认值
             ////var container = builder.Build();//创建容器完毕
-            //var dog = container.Resolve<IAnimal>();//通过IOC容器创建对象
-            //dog.SayHello();
 
             builder.RegisterType<Doge>().Named<IAnimal>("doge");//映射对象
             builder.RegisterType<Pig>().Named<IAnimal>("pig");//映射对象
+            builder.RegisterType<Cat>().As<IAnimal>().PreserveExistingDefaults();//指定Cat为非默认值
 
-            var dog = container.ResolveNamed<IAnimal>("pig");//通过IOC容器创建对象
-            dog.SayHello();
             builder.RegisterType<Doge>().Keyed<IAnimal>(AnumalType.Doge);//映射对象
             builder.RegisterType<Pig>().Keyed<IAnimal>(AnumalType.Pig);//映射对象
 
-            var dogAble = container.ResolveKeyed<IAnimal>(AnumalType.Cat);//通过IOC容器创建对象
-            dogAble.SayHello();
+            builder.RegisterType<Cat>().Keyed<IAnimal>(AnumalType.Cat);//映射对象
+
+            //通过使用PreserveExistingDefaults() 修饰符，可以指定某个注册为非默认值。
 
             //不过这种方式是不推荐使用的，因为autofac容器会被当作Service Locator使用，
             //    推荐的做法是通过索引类型来实现，
             //Autofac.Features.Indexed.IIndex<K, V> 是Autofac自动实现的一个关联类型。
             //    使用IIndex<K, V> 作为参数的构造函数从基于键的服务中选择需要的实现：
 
-            var animal = container.Resolve<IIndex<AnumalType, IAnimal>>();
-            var cat = animal[AnumalType.Cat];
-            cat.SayHello();
+            var container = builder.Build();//创建容器完毕
+
+
+            List<string> list = container.Resolve<List<string>>();
+
+
+            var adog = container.Resolve<IAnimal>();//通过IOC容器创建对象
+            adog.SayHello();
+            var doge = container.Resolve<Doge>();//通过IOC容器创建对象
+            doge.SayHello();
+            //var animal = container.Resolve<IIndex<AnumalType, IAnimal>>();
+            //var cat = animal[AnumalType.Cat];
+            //cat.SayHello();
+
+            var dog = container.ResolveNamed<IAnimal>("pig");//通过IOC容器创建对象
+            dog.SayHello();
+            var dogAble = container.ResolveKeyed<IAnimal>(AnumalType.Cat);//通过IOC容器创建对象
+            dogAble.SayHello();
 
 
         }
