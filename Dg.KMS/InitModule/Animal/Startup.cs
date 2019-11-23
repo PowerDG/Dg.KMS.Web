@@ -34,8 +34,8 @@ namespace Animal
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             //RegisterContainer();
-            RegisterContainer2();
-
+            //RegisterContainer2();
+            RegisterPerson();
 
 
 
