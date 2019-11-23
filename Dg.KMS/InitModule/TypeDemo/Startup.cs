@@ -57,14 +57,14 @@ namespace TypeDemo
             //    （意味着框架现在会尝试从IServiceProvider中解析控制器实例，
             //也就是return new AutofacServiceProvider(Container);）
             services.Replace(ServiceDescriptor.Transient<IControllerActivator, ServiceBasedControllerActivator>());
-            RegisterAssemblyTypes();
+            //RegisterAssemblyTypes();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             var builder = new ContainerBuilder();
             builder.Populate(services);
-            builder.RegisterAssemblyTypes(typeof(Startup).Assembly).AsImplementedInterfaces();
+            //builder.RegisterAssemblyTypes(typeof(Startup).Assembly).AsImplementedInterfaces();
 
-            //builder.RegisterType<LogInterceptor>();
+            builder.RegisterType<LogInterceptor>();
             //builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
             //    .AsImplementedInterfaces()
             //    .EnableInterfaceInterceptors();
