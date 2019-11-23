@@ -11,10 +11,11 @@ namespace TypeDemo.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //public class ValuesController : ControllerBase
 
     [Intercept(typeof(LogInterceptor))]
-    public class ValuesController : Controller
+    //public class ValuesController : Controller
+
+    public class ValuesController : ControllerBase
     {
         //private readonly IEnumerable<IDog> dogs;
 
