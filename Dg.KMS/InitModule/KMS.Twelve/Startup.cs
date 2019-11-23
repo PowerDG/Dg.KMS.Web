@@ -149,7 +149,7 @@ namespace KMS.Twelve
                 //builder.RegisterType<InMemoryCache>().As<ICache>().InstancePerLifetimeScope();
 
                 builder.RegisterAssemblyTypes(typeof(AutoDIController).Assembly)
-                    .Where(t => t.Name.EndsWith("Controller2") || t.Name.EndsWith("AppService"))
+                    .Where(t => t.Name.EndsWith("Controller") || t.Name.EndsWith("AppService"))
                     //builder.RegisterAssemblyTypes(typeof(StuEducationRepo).Assembly)
                     //    .Where(t => t.Name.EndsWith("Repo"))
                     //    .AsImplementedInterfaces().InstancePerLifetimeScope();
