@@ -15,7 +15,22 @@ using TypeDemo.InDependency;
 
 namespace TypeDemo.IocInfo
 {
+    /// <summary>
+    /// https://www.cnblogs.com/yanweidie/p/autofac.html
+    /// 先列出使用过程中遇到的几个问题，然后再给出解决方案
 
+    ////1:如何简单注册代码里面的所有类型
+
+    ////2.如何注册单例和普通对象
+
+    ////3.封装好的代码怎么支持用户特殊化注册需求
+
+    ////为了解决上述问题，这里给出了几个约束
+
+    ////单例对象需继承的接口：ISingletonDependency 普通对象需继承的接口：ITransientDependency 特殊化注册接口：IDependencyRegistrar
+
+    ////通过这几个约束，在初始化时找所有程序集 继承ISingletonDependency, ITransientDependency 接口的对象进行类型注册
+    /// </summary>
     public interface IIocManager
     {
         IContainer Container { get; }
