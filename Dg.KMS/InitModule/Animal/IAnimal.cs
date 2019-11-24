@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 
 namespace Animal
 {
+    //https://www.cnblogs.com/Chary/p/11351457.html
+    //深入浅出依赖注入容器——Autofac
 
     public interface IAnimal
     {
