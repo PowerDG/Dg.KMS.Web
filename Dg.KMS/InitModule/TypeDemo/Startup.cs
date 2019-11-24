@@ -67,19 +67,19 @@ namespace TypeDemo
             builder.Populate(services);
             //builder.RegisterAssemblyTypes(typeof(Startup).Assembly).AsImplementedInterfaces();
 
-            builder.RegisterType<IIocManager>();
-            builder.RegisterType<LogInterceptor>();
+            //builder.RegisterType<IIocManager>();
             //builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
             //    .AsImplementedInterfaces()
             //    .EnableInterfaceInterceptors();
-            
+
 
             //这种使用方式需要自己指定在哪个类上使用，还有一种全局拦截器
 
-            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
-                .AsImplementedInterfaces()
-                .EnableInterfaceInterceptors()
-                .InterceptedBy(typeof(LogInterceptor));
+            //builder.RegisterType<LogInterceptor>();
+            //builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
+            //    .AsImplementedInterfaces()
+            //    .EnableInterfaceInterceptors()
+            //    .InterceptedBy(typeof(LogInterceptor));
             
                 
             //builder.RegisterType<TestDemo>();
@@ -113,6 +113,8 @@ namespace TypeDemo
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseMvc();
+
 
             var iocManager = app.ApplicationServices.GetService<IIocManager>();
             List<Parameter> cparams = new List<Parameter>();
@@ -122,8 +124,6 @@ namespace TypeDemo
             //https://www.cnblogs.com/yanweidie/p/autofac.html
             var testDemo = iocManager.Resolve<TestDemo>(cparams.ToArray());
             Console.WriteLine($"姓名：{testDemo.Name},年龄：{testDemo.Age},性别：{testDemo.Sex}");
-
-            app.UseMvc();
 
         }
         public void More()
