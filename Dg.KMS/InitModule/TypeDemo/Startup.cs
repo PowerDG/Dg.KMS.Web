@@ -16,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using TypeDemo.Controllers;
 using TypeDemo.Domain;
 using TypeDemo.IocInfo;
 using TypeDemo.Log;
@@ -66,11 +67,12 @@ namespace TypeDemo
             builder.Populate(services);
             //builder.RegisterAssemblyTypes(typeof(Startup).Assembly).AsImplementedInterfaces();
 
+            builder.RegisterType<IIocManager>();
             builder.RegisterType<LogInterceptor>();
             //builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
             //    .AsImplementedInterfaces()
             //    .EnableInterfaceInterceptors();
-
+            
 
             //这种使用方式需要自己指定在哪个类上使用，还有一种全局拦截器
 
@@ -86,6 +88,8 @@ namespace TypeDemo
             //Assembly.GetExecutingAssembly()：当前方法所在程序集
             //https://www.cnblogs.com/luna-hehe/p/10142159.html
             //Assembly.GetCallingAssembly()：调用当前方法的方法 所在的程序集
+            var assembly = typeof(ValuesController).GetTypeInfo().Assembly;
+
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
                 .Where(t => IControllerType.IsAssignableFrom(t) && t != IControllerType)
                 .PropertiesAutowired()
@@ -110,16 +114,17 @@ namespace TypeDemo
             }
 
 
-
-            app.UseMvc();
-
             var iocManager = app.ApplicationServices.GetService<IIocManager>();
             List<Parameter> cparams = new List<Parameter>();
             cparams.Add(new NamedParameter("name", "张三"));
             cparams.Add(new NamedParameter("sex", "男"));
             cparams.Add(new TypedParameter(typeof(int), 2));
+            //https://www.cnblogs.com/yanweidie/p/autofac.html
             var testDemo = iocManager.Resolve<TestDemo>(cparams.ToArray());
             Console.WriteLine($"姓名：{testDemo.Name},年龄：{testDemo.Age},性别：{testDemo.Sex}");
+
+            app.UseMvc();
+
         }
         public void More()
         {
