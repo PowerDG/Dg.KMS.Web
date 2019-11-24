@@ -121,9 +121,10 @@ namespace TypeDemo
             cparams.Add(new NamedParameter("name", "张三"));
             cparams.Add(new NamedParameter("sex", "男"));
             cparams.Add(new TypedParameter(typeof(int), 2));
-            //https://www.cnblogs.com/yanweidie/p/autofac.html
-            var testDemo = iocManager.Resolve<TestDemo>(cparams.ToArray());
-            Console.WriteLine($"姓名：{testDemo.Name},年龄：{testDemo.Age},性别：{testDemo.Sex}");
+            ////https://www.cnblogs.com/yanweidie/p/autofac.html
+            //.net core2.0下Ioc容器Autofac使用
+            //var testDemo = iocManager.Resolve<TestDemo>(cparams.ToArray());
+            //Console.WriteLine($"姓名：{testDemo.Name},年龄：{testDemo.Age},性别：{testDemo.Sex}");
 
         }
         public void More()
