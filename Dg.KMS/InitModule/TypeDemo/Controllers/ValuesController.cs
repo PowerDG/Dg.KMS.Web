@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
+using Autofac.Core;
 using Autofac.Extras.DynamicProxy;
 using Microsoft.AspNetCore.Mvc;
 using TypeDemo.Domain;
@@ -50,7 +52,18 @@ namespace TypeDemo.Controllers
             }
             return list.ToArray(); ;
         }
+        public  void    More()
+        {
+            var iocManager = app.ApplicationServices.GetService<IIocManager>();
+            List<Parameter> cparams = new List<Parameter>();
+            cparams.Add(new NamedParameter("name", "张三"));
+            cparams.Add(new NamedParameter("sex", "男"));
+            cparams.Add(new TypedParameter(typeof(int), 2));
+            var testDemo = iocManager.Resolve<TestDemo>(cparams.ToArray());
+            Console.WriteLine($"姓名：{testDemo.Name},年龄：{testDemo.Age},性别：{testDemo.Sex}");
 
+
+        }
 // GET api/values/5
 [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
