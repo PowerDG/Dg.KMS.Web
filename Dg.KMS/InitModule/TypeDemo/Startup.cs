@@ -78,8 +78,9 @@ namespace TypeDemo
                 .AsImplementedInterfaces()
                 .EnableInterfaceInterceptors()
                 .InterceptedBy(typeof(LogInterceptor));
-
-
+            
+                
+            //builder.RegisterType<TestDemo>();
             //RegisterContainer(builder);
             var IControllerType = typeof(ControllerBase);
             //Assembly.GetExecutingAssembly()：当前方法所在程序集
@@ -89,6 +90,13 @@ namespace TypeDemo
                 .Where(t => IControllerType.IsAssignableFrom(t) && t != IControllerType)
                 .PropertiesAutowired()
                 .EnableClassInterceptors();
+
+            builder.RegisterType(typeof(TestDemo)).AsSelf()
+                .OnRegistered(e => Console.WriteLine("OnRegistered在注册的时候调用!"))
+                  .OnPreparing(e => Console.WriteLine("OnPreparing在准备创建的时候调用!"))
+                  .OnActivating(e => Console.WriteLine("OnActivating在创建之前调用!"))
+                  .OnActivated(e => Console.WriteLine("OnActivated创建之后调用!"))
+                  .OnRelease(e => Console.WriteLine("OnRelease在释放占用的资源之前调用!"));
             var Container = builder.Build();
             return new AutofacServiceProvider(Container);
         }
@@ -101,6 +109,10 @@ namespace TypeDemo
                 app.UseDeveloperExceptionPage();
             }
 
+
+
+            app.UseMvc();
+
             var iocManager = app.ApplicationServices.GetService<IIocManager>();
             List<Parameter> cparams = new List<Parameter>();
             cparams.Add(new NamedParameter("name", "张三"));
@@ -108,19 +120,16 @@ namespace TypeDemo
             cparams.Add(new TypedParameter(typeof(int), 2));
             var testDemo = iocManager.Resolve<TestDemo>(cparams.ToArray());
             Console.WriteLine($"姓名：{testDemo.Name},年龄：{testDemo.Age},性别：{testDemo.Sex}");
-
-
-            app.UseMvc();
         }
         public void More()
         {
-            //    var iocManager = app.ApplicationServices.GetService<IIocManager>();
-            //    List<Parameter> cparams = new List<Parameter>();
-            //    cparams.Add(new NamedParameter("name", "张三"));
-            //    cparams.Add(new NamedParameter("sex", "男"));
-            //    cparams.Add(new TypedParameter(typeof(int), 2));
-            //    var testDemo = iocManager.Resolve<TestDemo>(cparams.ToArray());
-            //    Console.WriteLine($"姓名：{testDemo.Name},年龄：{testDemo.Age},性别：{testDemo.Sex}");
+        //    var iocManager = app.ApplicationServices.GetService<IIocManager>();
+        //    List<Parameter> cparams = new List<Parameter>();
+        //    cparams.Add(new NamedParameter("name", "张三"));
+        //    cparams.Add(new NamedParameter("sex", "男"));
+        //    cparams.Add(new TypedParameter(typeof(int), 2));
+        //    var testDemo = iocManager.Resolve<TestDemo>(cparams.ToArray());
+        //    Console.WriteLine($"姓名：{testDemo.Name},年龄：{testDemo.Age},性别：{testDemo.Sex}");
 
 
         }
