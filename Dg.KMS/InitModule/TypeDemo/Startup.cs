@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Autofac;
+using Autofac.Core;
 using Autofac.Extensions.DependencyInjection;
 using Autofac.Extras.DynamicProxy;
 using Microsoft.AspNetCore.Builder;
@@ -16,6 +17,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using TypeDemo.Domain;
+using TypeDemo.IocInfo;
 using TypeDemo.Log;
 
 namespace TypeDemo
@@ -99,9 +101,29 @@ namespace TypeDemo
                 app.UseDeveloperExceptionPage();
             }
 
+            var iocManager = app.ApplicationServices.GetService<IIocManager>();
+            List<Parameter> cparams = new List<Parameter>();
+            cparams.Add(new NamedParameter("name", "张三"));
+            cparams.Add(new NamedParameter("sex", "男"));
+            cparams.Add(new TypedParameter(typeof(int), 2));
+            var testDemo = iocManager.Resolve<TestDemo>(cparams.ToArray());
+            Console.WriteLine($"姓名：{testDemo.Name},年龄：{testDemo.Age},性别：{testDemo.Sex}");
+
+
             app.UseMvc();
         }
+        public void More()
+        {
+            //    var iocManager = app.ApplicationServices.GetService<IIocManager>();
+            //    List<Parameter> cparams = new List<Parameter>();
+            //    cparams.Add(new NamedParameter("name", "张三"));
+            //    cparams.Add(new NamedParameter("sex", "男"));
+            //    cparams.Add(new TypedParameter(typeof(int), 2));
+            //    var testDemo = iocManager.Resolve<TestDemo>(cparams.ToArray());
+            //    Console.WriteLine($"姓名：{testDemo.Name},年龄：{testDemo.Age},性别：{testDemo.Sex}");
 
+
+        }
         /// <summary>
         /// 1.RegisterType 
         /// </summary>
