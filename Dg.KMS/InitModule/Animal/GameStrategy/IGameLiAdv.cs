@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Animal.GameStrategy
 {
-    internal interface IAttackStrategy
+    public interface IAttackStrategy
     {
         void AttackTarget(Monster monster);
     }
