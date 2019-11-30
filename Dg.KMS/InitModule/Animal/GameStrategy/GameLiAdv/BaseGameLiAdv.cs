@@ -8,14 +8,14 @@ namespace Animal.GameStrategy.GameLiAdv
     public class BaseGameLiAdv
     {
     }
-    internal sealed class WoodSword : IAttackStrategy
+    public class WoodSword : IAttackStrategy
     {
         public void AttackTarget(Monster monster)
         {
             monster.Notify(20);
         }
     }
-    internal sealed class IronSword : IAttackStrategy
+    public class IronSword : IAttackStrategy
     {
         public void AttackTarget(Monster monster)
         {
@@ -23,7 +23,7 @@ namespace Animal.GameStrategy.GameLiAdv
         }
     }
 
-    internal sealed class MagicSword : IAttackStrategy
+    public class MagicSword : IAttackStrategy
     {
         private Random _random = new Random();
 
