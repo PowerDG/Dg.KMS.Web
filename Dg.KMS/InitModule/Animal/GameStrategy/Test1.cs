@@ -1,4 +1,5 @@
-﻿using Animal.GameStrategy.GameLiAdv;
+﻿using Animal.DgContext;
+using Animal.GameStrategy.GameLiAdv;
 using Animal.GameStrategy.NPC;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,17 @@ namespace Animal.GameStrategy
             role.Attack(monster4);
 
             //Console.ReadLine();
+        }
+        public void Test13()
+        {
+            IServiceClass serviceA = new ServiceClassA();
+            IServiceClass serviceB = new ServiceClassB();
+            ClientClass client = new ClientClass();
+
+            client.Set_ServiceImpl(serviceA);
+            client.ShowInfo();
+            client.Set_ServiceImpl(serviceB);
+            client.ShowInfo();
         }
     }
 }
