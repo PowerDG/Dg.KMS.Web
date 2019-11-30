@@ -14,4 +14,14 @@ namespace Animal.DependencyLocate
         ITextBox MakeTextBox();
 
     }
+
+    public interface IWindow
+    {
+       public  string ShowInfo();
+    }
+
+    public interface ITextBox
+    {
+        public string ShowInfo();
+    }
 }
