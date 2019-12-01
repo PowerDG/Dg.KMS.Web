@@ -17,11 +17,11 @@ namespace Animal.DependencyLocate
 
     public interface IWindow
     {
-       public  string ShowInfo();
+        string ShowInfo();
     }
 
     public interface ITextBox
     {
-        public string ShowInfo();
+        string ShowInfo();
     }
 }
