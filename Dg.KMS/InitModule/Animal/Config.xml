@@ -1,4 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <config>
     <factory>Mac</factory>
+    <window>MacWindow</window>
+    <button>MacButton</button>
+    <textBox>MacTextBox</textBox>
 </config>
