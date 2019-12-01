@@ -1,4 +1,5 @@
-﻿using Animal.DgContext;
+﻿using Animal.DependencyLocate;
+using Animal.DgContext;
 using Animal.GameStrategy.GameLiAdv;
 using Animal.GameStrategy.NPC;
 using System;
@@ -51,6 +52,34 @@ namespace Animal.GameStrategy
             client.ShowInfo();
             client.Set_ServiceImpl(serviceB);
             client.ShowInfo();
+        }
+
+        /// <summary>
+        /// https://www.cnblogs.com/leoo2sk/archive/2009/06/17/di-and-ioc.html#
+        /// </summary>
+        public void FactoryContainerTest()
+        {
+            IFactory factory = FactoryContainer.factory;
+            IWindow window = factory.MakeWindow();
+            Console.WriteLine("创建 " + window.ShowInfo());
+            IButton button = factory.MakeButton();
+            Console.WriteLine("创建 " + button.ShowInfo());
+            ITextBox textBox = factory.MakeTextBox();
+            Console.WriteLine("创建 " + textBox.ShowInfo());
+
+            Console.ReadLine();
+        }
+        public void MakeWindowTest()
+        {
+            IFactory factory = FactoryContainer.factory;
+            IWindow window = factory.MakeWindow();
+            Console.WriteLine("创建 " + window.ShowInfo());
+            IButton button = factory.MakeButton();
+            Console.WriteLine("创建 " + button.ShowInfo());
+            ITextBox textBox = factory.MakeTextBox();
+            Console.WriteLine("创建 " + textBox.ShowInfo());
+
+            Console.ReadLine();
         }
     }
 }
