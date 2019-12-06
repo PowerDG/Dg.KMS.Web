@@ -1,15 +1,45 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace NotNullTest
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            var dict = GetDict();
-            Console.WriteLine("Hello World!" + dict[221] + "--" + ProductsMapper().ToList().Count() + "！！");
+            PageTest();
+            //var dict = GetDict();
+            //Console.WriteLine("Hello World!" + dict[221] + "--" + ProductsMapper().ToList().Count() + "！！");
+        }
+
+        public static void PageTest()
+        {
+            var list = GetPageTest();
+            //List<int>
+
+            var pageSize = 99;
+            var length = list.Count();
+            var pageNo = length / pageSize;
+            var currentList = new List<int>();
+            for (int i =1; i <= pageNo+1; i ++)
+            {
+                currentList = list.Skip((i - 1) * pageSize).Take(pageSize).ToList();
+                //var currentDict = await orderListManager.GetBasePriceDictAsync(currentList, orderNo, requestTracked);
+                Console.WriteLine($"{i }---{JsonConvert.SerializeObject(currentList)}");
+            }
+        }
+
+
+        public static List<int> GetPageTest()
+        {
+            var list = new List<int>();
+            for (int i = 0; i < 698; i++)
+            {
+                list.Add(i);
+            }
+            return list;
         }
 
         public static IEnumerable<int> ProductsMapper()
