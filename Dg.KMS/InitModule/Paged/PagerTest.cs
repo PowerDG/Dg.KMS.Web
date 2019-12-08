@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+//using System.Data.Entity.Core.Objects.DataClasses;
 using System.Linq;
 using System.Text;
 
 namespace Paged
 {
+    /// <summary>
+    /// C# ,通用内存集合对象分页、筛选(lambda那点事)
+    /// https://www.cnblogs.com/fanqie-liuxiao/p/5796128.html
+    /// </summary>
     public class PagerTest
     {
         public void test()
@@ -23,11 +28,15 @@ namespace Paged
             Console.WriteLine(enum_1.MyPrint());   // 看它返回的是什么，先来体验一下
 
         }
+
+
+      
+
     }
 
-    public class gameProduct
+    public class gameProduct2
     {
-        public gameProduct(int lenght,int fighting, int age)
+        public gameProduct2(int lenght, int fighting, int age)
         {
             this.lenght = lenght;
 
