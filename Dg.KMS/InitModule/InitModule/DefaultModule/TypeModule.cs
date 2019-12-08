@@ -26,7 +26,11 @@ namespace InitModule.DefaultModule
 
             #endregion
 
+            #region MyRegion
+            builder.RegisterType<AutoFacManager>();
+            builder.RegisterType<Worker>().As<IPerson>();
 
+            #endregion
 
 
 
