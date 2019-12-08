@@ -47,7 +47,7 @@ namespace InitModule
             var containerBuilder = new ContainerBuilder();
 
             //模块化注入
-            //containerBuilder.RegisterModule<DefaultModule>();
+            containerBuilder.RegisterModule<TypeModule>();
 
             AutofacContainer = containerBuilder.Build();
             //使用容器创建 AutofacServiceProvider
