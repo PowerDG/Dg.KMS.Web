@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Paged;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,20 @@ namespace NotNullTest
     {
         public static void Main(string[] args)
         {
-            PageTest();
+            //PageTest();
+            extendLoadGamePrint();
             //var dict = GetDict();
             //Console.WriteLine("Hello World!" + dict[221] + "--" + ProductsMapper().ToList().Count() + "！！");
         }
 
+        public  static void extendLoadGamePrint()
+        {
+            new TestProgram().loadGame();
+        }
+        public static void CurrentPagerTest()
+        {
+            var pager= new Paged.PagerTest();
+        }
         public static void PageTest()
         {
             var list = GetPageTest();
