@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace InitModule
 {
@@ -17,8 +18,17 @@ namespace InitModule
 
         public IConfiguration Configuration { get; }
 
+        public static IContainer AutofacContainer;
+
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        //public void ConfigureServices(IServiceCollection services)
+
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
+        public IServiceProvider ConfigureServices(IServiceCollection services)
+
+
         {
             ////注册数据库Gwglxs
             ///https://www.cnblogs.com/qingzhen/p/11712457.html
@@ -32,6 +42,16 @@ namespace InitModule
                 container.RegisterType<MyClass>().SingleInstance();
             });
             services.AddControllers();
+
+
+            var containerBuilder = new ContainerBuilder();
+
+            //模块化注入
+            //containerBuilder.RegisterModule<DefaultModule>();
+
+            AutofacContainer = containerBuilder.Build();
+            //使用容器创建 AutofacServiceProvider
+            return new AutofacServiceProvider(AutofacContainer);
         }
         //public void ConfigureContainer(ContainerBuilder builder)
         //{
