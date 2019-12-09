@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace InitModule.DefaultModule
 {
+    /// <summary>
+    /// https://www.cnblogs.com/sylone/p/6094323.html
+    /// 
+    /// </summary>
     public class TypeModule : Autofac.Module
     {
         public object MySingleton { get; private set; }
@@ -28,7 +32,13 @@ namespace InitModule.DefaultModule
 
             #endregion
 
-            #region 类型创建RegisterType
+       
+
+        }
+
+        public void LoadType(ContainerBuilder builder)
+        {
+            #region 1、类型创建RegisterType【As() 方法将Component封装成了服务使用。】
             builder.RegisterType<AutoFacManager>();
             builder.RegisterType<Worker>().As<IPerson>();
             //AutoFac能够通过反射检查一个类型,选择一个合适的构造函数,创造这个对象的实例。
@@ -37,7 +47,8 @@ namespace InitModule.DefaultModule
             //ContainerBuilder使用 As() 方法将Component封装成了服务使用。
             #endregion
 
-            #region 2、实例创建
+
+            #region 2、实例创建【RegisterInstance new 】
             builder.RegisterInstance<AutoFacManager>(new AutoFacManager(new Worker()));
 
             //单例
@@ -48,18 +59,16 @@ namespace InitModule.DefaultModule
 
             //这种方法会确保系统中的单例实例最终转化为由容器托管的单例实例。
             #endregion
-            #region 3、Lambda表达式创建
+
+
+            #region 3、Lambda表达式创建【c.Resolve<IPerson>()】
             //Lambda的方式也是Autofac通过反射的方式实现
-
-   
-                builder.Register(c => new AutoFacManager(c.Resolve<IPerson>()));
+            builder.Register(c => new AutoFacManager(c.Resolve<IPerson>()));
             builder.RegisterType<Worker>().As<IPerson>();
-
-
             #endregion
 
 
-            #region  4、程序集创建
+            #region  4、程序集创建【RegisterAssemblyTypes()】
 
             //程序集的创建主要通过RegisterAssemblyTypes()方法实现，
             //Autofac会自动在程序集中查找匹配的类型用于创建实例。
@@ -67,35 +76,13 @@ namespace InitModule.DefaultModule
             builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()); //在当前正在运行的程序集中找
             builder.RegisterType<Worker>().As<IPerson>();
 
-
-
-
             #endregion
 
 
-
-            #region  4、程序集创建
-
-            //程序集的创建主要通过RegisterAssemblyTypes()方法实现，
-            //Autofac会自动在程序集中查找匹配的类型用于创建实例。
-
-            builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly()); //在当前正在运行的程序集中找
-            builder.RegisterType<Worker>().As<IPerson>();
-
-
-
-
-            #endregion
-
-
-
-
-            #region 　5、泛型注册
-
+            #region 　5、泛型注册【RegisterGeneric()】
             //泛型注册通过RegisterGeneric() 这个方法实现，在容易中可以创建出泛型的具体对象。
-
-    //泛型注册,可以通过容器返回List<T> 如:List<string>,List<int>等等
-    builder.RegisterGeneric(typeof(List<>)).As(typeof(IList<>)).InstancePerLifetimeScope();
+            //泛型注册,可以通过容器返回List<T> 如:List<string>,List<int>等等
+            builder.RegisterGeneric(typeof(List<>)).As(typeof(IList<>)).InstancePerLifetimeScope();
             using (IContainer container = builder.Build())
             {
                 IList<string> ListString = container.Resolve<IList<string>>();
@@ -107,6 +94,20 @@ namespace InitModule.DefaultModule
             #endregion
 
 
+            #region 　6、默认的注册
+
+            //如果一个类型被多次注册,以最后注册的为准。
+            //通过使用PreserveExistingDefaults() 修饰符，可以指定某个注册为非默认值。
+            //ContainerBuilder builder = new ContainerBuilder();
+            builder.RegisterType<AutoFacManager>();
+            builder.RegisterType<Worker>().As<IPerson>();
+            builder.RegisterType<Student>().As<IPerson>().PreserveExistingDefaults();   //指定Student为非默认值
+            using (IContainer container = builder.Build())
+            {
+                AutoFacManager manager = container.Resolve<AutoFacManager>();
+                manager.Say();  //输出我是一个工人
+            }
+            #endregion
         }
 
 
