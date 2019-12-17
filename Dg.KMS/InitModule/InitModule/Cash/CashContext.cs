@@ -13,7 +13,7 @@ namespace InitModule.Cash
 	public class CashContext
 	{
 		BaseCash cs;
-		CashContext(String type)
+		public CashContext(String type)
 		{
 			switch (type)
 			{
