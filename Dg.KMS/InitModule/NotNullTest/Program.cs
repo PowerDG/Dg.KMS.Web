@@ -10,19 +10,21 @@ namespace NotNullTest
     {
         public static void Main(string[] args)
         {
+            NullModelTest();
+
             //PageTest();
             extendLoadGamePrint();
             //var dict = GetDict();
             //Console.WriteLine("Hello World!" + dict[221] + "--" + ProductsMapper().ToList().Count() + "！！");
         }
 
-        public  static void extendLoadGamePrint()
+        public static void extendLoadGamePrint()
         {
             new TestProgram().loadGame();
         }
         public static void CurrentPagerTest()
         {
-            var pager= new Paged.PagerTest();
+            var pager = new Paged.PagerTest();
         }
         public static void PageTest()
         {
@@ -33,7 +35,7 @@ namespace NotNullTest
             var length = list.Count();
             var pageNo = length / pageSize;
             var currentList = new List<int>();
-            for (int i =1; i <= pageNo+1; i ++)
+            for (int i = 1; i <= pageNo + 1; i++)
             {
                 currentList = list.Skip((i - 1) * pageSize).Take(pageSize).ToList();
                 //var currentDict = await orderListManager.GetBasePriceDictAsync(currentList, orderNo, requestTracked);
@@ -41,6 +43,52 @@ namespace NotNullTest
             }
         }
 
+        public static void NullModelTest()
+        {
+
+            Model2 mm = new Model2();
+            mm = null;
+            var list = new List<Model2>();
+            list = null;
+            if (!(list?.Any()?? false))
+            {
+                Console.WriteLine($" null--");
+            }
+            else
+            {
+
+                Console.WriteLine($"not null");
+            }
+
+
+
+        }
+
+        public static void NullStrTest()
+        {
+
+            Model2 mm = new Model2();
+            mm.Remark = null;
+            var c = TestNullStr(mm);
+            Console.WriteLine($"{c}---{JsonConvert.SerializeObject(c)}");
+
+
+
+        }
+        public static string TestNullStr(Model2 mo)
+        {
+
+            var remark = @"UpdateBaseCost|";
+            if (!string.IsNullOrWhiteSpace(mo.Remark))
+            {
+                var entityReamrk = mo.Remark ?? "";
+                if (!entityReamrk.StartsWith("UpdateBaseCost|"))
+                {
+                    remark += entityReamrk;
+                }
+            }
+            return remark;
+        }
 
         public static List<int> GetPageTest()
         {
@@ -72,8 +120,8 @@ namespace NotNullTest
         {
             return new List<CheckList>()
             {
-                new CheckList(1,5), 
-                new CheckList(1,6), 
+                new CheckList(1,5),
+                new CheckList(1,6),
                 new CheckList(2,5),
                 new CheckList(2,7),
                 new CheckList(3,5),
@@ -83,14 +131,14 @@ namespace NotNullTest
         {
             Dictionary<int, CheckList> recountDict = new Dictionary<int, CheckList>();
 
-            var c=recountDict[0];
+            var c = recountDict[0];
 
-        
+
         }
     }
 
     public class CheckList
-    { 
+    {
         public CheckList(int id, int PKID)
         {
             this.ItemId = id;
@@ -106,16 +154,16 @@ namespace NotNullTest
         public virtual decimal BaseCost { get; set; }
         public int Add(CheckItem item)
         {
-            if (!Items.Select(x=>x.POId).Contains(item.POId))
+            if (!Items.Select(x => x.POId).Contains(item.POId))
             {
                 Items.Add(item);
-                TotalNum += item.Num; 
-                Cost += item.Cost; 
+                TotalNum += item.Num;
+                Cost += item.Cost;
                 BaseCost += item.BaseCost;
             }
             return Items.Count;
         }
-        public  bool CheckFigureOut()
+        public bool CheckFigureOut()
         {
             if (true)
             {
@@ -130,7 +178,7 @@ namespace NotNullTest
         {
             this.POId = id;
             this.POId = POId;
-        } 
+        }
         public virtual int OrderListId { get; set; }
         public virtual string Pid { get; set; }
         public virtual int Num { get; set; }
