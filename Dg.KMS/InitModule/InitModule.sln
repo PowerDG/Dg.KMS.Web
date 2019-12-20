@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29418.71
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.960
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InitModule", "InitModule\InitModule.csproj", "{9C8CF331-2370-4256-9C53-8D07C31EFD0E}"
 EndProject
@@ -33,7 +33,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Animal", "Animal\Animal.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypeDemo", "TypeDemo\TypeDemo.csproj", "{B19114D1-840B-4192-B478-30AD92375817}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paged", "Paged\Paged.csproj", "{70DF6865-91B3-455C-B467-8260DCA68C08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paged", "Paged\Paged.csproj", "{70DF6865-91B3-455C-B467-8260DCA68C08}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{45D3B6FC-3353-4121-B66F-651C124C105D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
