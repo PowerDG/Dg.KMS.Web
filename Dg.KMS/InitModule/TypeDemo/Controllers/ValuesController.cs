@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Autofac;
 using Autofac.Core;
 using Autofac.Extras.DynamicProxy;
+using KMS.Twelve.Test;
 using Microsoft.AspNetCore.Mvc;
 using TypeDemo.Domain;
 using TypeDemo.Log;
@@ -14,7 +15,7 @@ namespace TypeDemo.Controllers
     [Route("api/[controller]")]
     [ApiController]
 
-    [Intercept(typeof(LogInterceptor))]
+    [Intercept(typeof(AopInterceptor))]
     //public class ValuesController : Controller
 
     public class ValuesController : ControllerBase

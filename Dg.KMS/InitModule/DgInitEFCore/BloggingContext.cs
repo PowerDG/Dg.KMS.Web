@@ -1,7 +1,10 @@
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace EFGetStarted
+namespace DgInitEFCore
 {
     /// <summary>
     ///     EF Core 入门
@@ -10,9 +13,8 @@ namespace EFGetStarted
     /// </summary>
     public class BloggingContext : DbContext
     {
-            
-        public string conStr=
-            $"User ID=postgres;Password=wsx1001;Host=localhost;Port=5432;Database=IdentityServerDemoDb;Pooling=true;";
+        public string conStr =
+"User ID=postgres;Password=wsx1001;Host=localhost;Port=5432;Database=IdentityServerDemoDb;Pooling=true;";
 
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Post> Posts { get; set; }
@@ -27,7 +29,7 @@ namespace EFGetStarted
 
         //public List<Post> Posts { get; } = new List<Post>();
 
-            
+
         /// <summary>
         /// dotnet new webapi --name EFGetStarted --no-https
         /// dotnet tool install --global dotnet-ef
