@@ -1,9 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Autofac.Extras.DynamicProxy;
+using KMS.Twelve.Test;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace KMS.Twelve.Controllers
 {
     [Route("api/[controller]")]
+
+    [Intercept(typeof(AOPTest))]
     [ApiController]
     public class ValuesController : ControllerBase
     {

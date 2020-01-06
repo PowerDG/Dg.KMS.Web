@@ -105,7 +105,7 @@ namespace InitModule.DefaultModule
             using (IContainer container = builder.Build())
             {
                 AutoFacManager manager = container.Resolve<AutoFacManager>();
-                manager.Say();  //输出我是一个工人
+                //manager.Say();  //输出我是一个工人
             }
             #endregion
         }

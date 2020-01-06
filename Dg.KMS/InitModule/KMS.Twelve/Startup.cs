@@ -13,8 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
 using System.Linq;
-using System.Reflection;
-using System.Web.Http;
+using System.Reflection; 
 
 namespace KMS.Twelve
 {
@@ -160,12 +159,12 @@ namespace KMS.Twelve
                     //    .Where(t => t.Name.EndsWith("AppService"))
                     .AsImplementedInterfaces().InstancePerLifetimeScope();
 
-                builder.RegisterWebApiFilterProvider(GlobalConfiguration.Configuration);
-                IContainer container = builder.Build();
-                var resolver = new AutofacWebApiDependencyResolver(container);
+                //builder.RegisterWebApiFilterProvider(GlobalConfiguration.Configuration);
+                //IContainer container = builder.Build();
+                //var resolver = new AutofacWebApiDependencyResolver(container);
 
-                // Configure Web API with the dependency resolver.
-                GlobalConfiguration.Configuration.DependencyResolver = resolver;
+                //// Configure Web API with the dependency resolver.
+                //GlobalConfiguration.Configuration.DependencyResolver = resolver;
             }
         }
     }

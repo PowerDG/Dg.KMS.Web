@@ -46,7 +46,8 @@ namespace KMS.Twelve
                     assembly =>
                         assembly.GetTypes().FirstOrDefault(type => type.GetInterfaces()
                             .Contains(typeof(IService))) != null
-                );
+                )
+                ;
 
             // RegisterAssemblyTypes 注册程序集
             //.net core如何读取所有页面的程序集
