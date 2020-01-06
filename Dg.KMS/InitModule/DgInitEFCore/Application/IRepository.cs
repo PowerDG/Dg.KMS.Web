@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DgInitEFCore.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -14,7 +15,10 @@ namespace DgInitEFCore.Application
     { 
     }
 
-    public interface IRepository<TEntity, TPrimaryKey> { }
+    public interface IRepository<TEntity, TPrimaryKey> : IRepository where TEntity : class, IEntity<TPrimaryKey>
+    { 
+    
+    } 
 
     /// <summary>
     /// 泛型仓储接口
