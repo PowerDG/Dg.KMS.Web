@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace DgInitEFCore.Application
 {
-    public class ShareYunSourseAppService   // : IShareYunSourseAppService
+    public class ShareYunSourseAppService     : IShareYunSourseAppService
     {
         private readonly IRepository<YunSourse> _yunsourseIRepository;
         public ShareYunSourseAppService(IRepository<YunSourse> yunsourseIRepository)
