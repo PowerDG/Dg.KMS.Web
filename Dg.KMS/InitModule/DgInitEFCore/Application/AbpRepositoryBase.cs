@@ -19,8 +19,8 @@ namespace DgInitEFCore.Application
     {
         /// <summary>
         /// The multi tenancy side
-        /// </summary>
-        /// 
+        /// </summary> 
+
         //public static MultiTenancySides? MultiTenancySide { get; private set; }
 
         //public IUnitOfWorkManager UnitOfWorkManager { get; set; }

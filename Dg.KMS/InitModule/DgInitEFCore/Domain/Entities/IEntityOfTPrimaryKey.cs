@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 
 namespace DgInitEFCore.Domain.Entities
 {
+    public interface IEntity : IEntity<int>
+    {
+
+    }
     public interface IEntity<TPrimaryKey>
     {
         /// <summary>
