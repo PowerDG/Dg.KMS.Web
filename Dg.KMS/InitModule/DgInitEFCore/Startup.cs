@@ -25,6 +25,10 @@ namespace DgInitEFCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+
+            //builder.RegisterGeneric(typeof(EfRepositoryBase<>)).As(typeof(IRepository<>)).InstancePerDependency();//注册仓储泛型
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
