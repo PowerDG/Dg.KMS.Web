@@ -14,7 +14,7 @@ namespace DgInitEFCore.Application
         }
         public async Task GetName()
         {
-            var list = _yunsourseIRepository.GetAll().Where(m => !string.IsNullOrEmpty(m.Content)).ToList();
+            var list = _yunsourseIRepository.GetAll().Where(m => !string.IsNullOrWhiteSpace(m.Content)).ToList();
 
         }
     }
