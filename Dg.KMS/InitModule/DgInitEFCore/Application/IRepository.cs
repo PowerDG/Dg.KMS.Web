@@ -6,6 +6,16 @@ using System.Threading.Tasks;
 
 namespace DgInitEFCore.Application
 {
+    public interface ITransientDependency
+    {
+
+    }
+    public interface IRepository : ITransientDependency
+    { 
+    }
+
+    public interface IRepository<TEntity, TPrimaryKey> { }
+
     /// <summary>
     /// 泛型仓储接口
     /// </summary>
