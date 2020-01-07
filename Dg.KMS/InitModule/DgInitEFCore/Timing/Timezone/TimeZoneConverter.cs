@@ -1,9 +1,9 @@
 using System;
 //using Abp.Configuration;
-using Abp.Dependency;
+//using Abp.Dependency;
 using DgInitEFCore.Application;
 using DgInitEFCore.Configuration;
-using ITransientDependency = Abp.Dependency.ITransientDependency;
+//using ITransientDependency = Abp.Dependency.ITransientDependency;
 
 namespace Abp.Timing.Timezone
 {

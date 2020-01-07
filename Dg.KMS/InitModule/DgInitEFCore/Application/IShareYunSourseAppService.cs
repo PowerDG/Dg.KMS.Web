@@ -1,6 +1,6 @@
 ﻿namespace DgInitEFCore
 {
-    internal interface IShareYunSourseAppService
+    public interface IShareYunSourseAppService
     {
     }
 }
