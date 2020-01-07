@@ -1,8 +1,8 @@
 ﻿using Abp.Timing;
 using System;
-using Abp.Configuration.Startup;
-using Abp.MultiTenancy;
-using Abp.Extensions;
+using DgInitEFCore.Configuration.Startup;
+using DgInitEFCore.MultiTenancy;
+using DgInitEFCore.Extensions;
 
 namespace DgInitEFCore.Domain.Entities.Auditing
 {
