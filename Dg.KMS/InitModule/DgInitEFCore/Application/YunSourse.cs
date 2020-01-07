@@ -1,4 +1,6 @@
-﻿namespace DgInitEFCore.Application
+﻿using DgInitEFCore.Domain.Entities;
+
+namespace DgInitEFCore.Application
 {
     public class YunSourse  : Entity
     {
