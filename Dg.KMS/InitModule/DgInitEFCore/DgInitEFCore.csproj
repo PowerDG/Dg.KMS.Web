@@ -6,8 +6,43 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Configuration\**" />
+    <Content Remove="Configuration\**" />
+    <EmbeddedResource Remove="Configuration\**" />
+    <None Remove="Configuration\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Domain\Entities\AggregateRoot.cs" />
+    <Compile Remove="Domain\Entities\Auditing\AuditedAggregateRoot.cs" />
+    <Compile Remove="Domain\Entities\Auditing\CreationAuditedAggregateRoot.cs" />
+    <Compile Remove="Domain\Entities\Auditing\FullAuditedAggregateRoot.cs" />
+    <Compile Remove="Logging\LogHelper.cs" />
+    <Compile Remove="Modules\AbpModule.cs" />
+    <Compile Remove="Modules\AbpModuleCollection.cs" />
+    <Compile Remove="Modules\AbpModuleManager.cs" />
+    <Compile Remove="MultiTenancy\TenantResolver.cs" />
+    <Compile Remove="Reflection\ProxyHelper.cs" />
+    <Compile Remove="Reflection\TypeFinder.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Configuration\HiddenSettingClientVisibilityProvider.cs" />
+    <Compile Include="Configuration\ISettingClientVisibilityProvider.cs" />
+    <Compile Include="Configuration\ISettingDefinitionManager.cs" />
+    <Compile Include="Configuration\ISettingManager.cs" />
+    <Compile Include="Configuration\SettingDefinition.cs" />
+    <Compile Include="Configuration\SettingDefinitionGroup.cs" />
+    <Compile Include="Configuration\SettingDefinitionProviderContext.cs" />
+    <Compile Include="Configuration\SettingProvider.cs" />
+    <Compile Include="Configuration\SettingScope.cs" />
+    <Compile Include="Configuration\VisibleSettingClientVisibilityProvider.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac.Configuration" Version="4.1.0" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="JetBrains.Annotations" Version="2019.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.4">
@@ -16,6 +51,7 @@
     </PackageReference>
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.2.4" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.0" />
+    <PackageReference Include="TimeZoneConverter" Version="3.2.0" />
   </ItemGroup>
 
   <ItemGroup>
