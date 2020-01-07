@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq.Expressions;
+using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using JetBrains.Annotations;
 
@@ -237,10 +238,14 @@ namespace Abp.Linq.Expressions
 
 #if !(NET35 || WINDOWS_APP || NETSTANDARD || PORTABLE || PORTABLE40 || UAP)
         /// <summary></summary>
-        //public void CompileToMethod(MethodBuilder method) { Predicate.CompileToMethod(method); }
+        public void CompileToMethod(MethodBuilder method) {
+            //Predicate.
+                CompileToMethod(method); }
 
-        ///// <summary></summary>
-        //public void CompileToMethod(MethodBuilder method, DebugInfoGenerator debugInfoGenerator) { Predicate.CompileToMethod(method, debugInfoGenerator); }
+        /// <summary></summary>
+        public void CompileToMethod(MethodBuilder method, DebugInfoGenerator debugInfoGenerator) { 
+            //Predicate.
+                CompileToMethod(method, debugInfoGenerator); }
 
 #endif
         #endregion

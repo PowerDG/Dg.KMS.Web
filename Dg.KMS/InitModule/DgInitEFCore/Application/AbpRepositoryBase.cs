@@ -73,7 +73,7 @@ namespace DgInitEFCore.Application
             var entity = FirstOrDefault(id);
             if (entity == null)
             {
-                //throw new EntityNotFoundException(typeof(TEntity), id);
+                throw new EntityNotFoundException(typeof(TEntity), id);
             }
 
             return entity;
@@ -84,7 +84,7 @@ namespace DgInitEFCore.Application
             var entity = await FirstOrDefaultAsync(id);
             if (entity == null)
             {
-                //throw new EntityNotFoundException(typeof(TEntity), id);
+                throw new EntityNotFoundException(typeof(TEntity), id);
             }
 
             return entity;

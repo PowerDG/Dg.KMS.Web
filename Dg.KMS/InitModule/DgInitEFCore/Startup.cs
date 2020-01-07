@@ -37,7 +37,9 @@ namespace DgInitEFCore
             var builder = new ContainerBuilder();//实例化 AutoFac  容器            
             builder.Populate(services);
             builder.RegisterGeneric(typeof(EfRepositoryBase<>)).As(typeof(IRepository<>)).InstancePerDependency();//注册仓储泛型
+            //builder.RegisterType(typeof(IShareYunSourseAppService)).As(typeof(ShareYunSourseAppService));//ShareYunSourseAppService 实现了IShareYunSourseAppService 
             builder.RegisterType(typeof(ShareYunSourseAppService)).As(typeof(IShareYunSourseAppService));//ShareYunSourseAppService 实现了IShareYunSourseAppService 
+
             ApplicationContainer = builder.Build();
             return new AutofacServiceProvider(ApplicationContainer);//第三方IOC接管 core内置DI容器
          

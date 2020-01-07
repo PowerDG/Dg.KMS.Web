@@ -1,3 +1,4 @@
+using Abp.Timing;
 using DgInitEFCore.Application;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -34,10 +35,10 @@ namespace DgInitEFCore.Domain.Entities.Auditing
         /// <summary>
         /// Constructor.
         /// </summary>
-        //protected CreationAuditedEntity()
-        //{
-        //    CreationTime = Clock.Now;
-        //}
+        protected CreationAuditedEntity()
+        {
+            CreationTime = Clock.Now;
+        }
     }
 
     /// <summary>
