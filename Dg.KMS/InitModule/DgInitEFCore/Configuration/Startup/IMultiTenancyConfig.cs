@@ -1,6 +1,8 @@
 ﻿using System.Collections;
-using Abp.Collections;
-using Abp.MultiTenancy;
+//using Abp.Collections;
+//using Abp.MultiTenancy;
+using DgInitEFCore.Collections;
+using DgInitEFCore.MultiTenancy;
 
 namespace DgInitEFCore.Configuration.Startup
 {
