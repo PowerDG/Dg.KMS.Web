@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using DgInitEFCore;
 using JetBrains.Annotations;
 
 namespace Abp.Modules

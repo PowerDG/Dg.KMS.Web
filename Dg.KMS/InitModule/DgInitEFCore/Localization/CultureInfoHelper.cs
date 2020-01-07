@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Globalization;
+using DgInitEFCore;
 using JetBrains.Annotations;
 
 namespace Abp.Localization

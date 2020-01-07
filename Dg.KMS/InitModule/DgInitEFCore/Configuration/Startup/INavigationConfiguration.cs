@@ -1,5 +1,6 @@
 ﻿using Abp.Application.Navigation;
-using Abp.Collections;
+//using Abp.Collections;
+using DgInitEFCore.Collections;
 
 namespace DgInitEFCore.Configuration.Startup
 {

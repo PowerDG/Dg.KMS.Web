@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DgInitEFCore;
+using System;
 using System.Runtime.Serialization;
 
 namespace Abp.Domain.Uow

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Abp.Collections;
 using Abp.Runtime.Validation.Interception;
+using DgInitEFCore.Collections;
 
 namespace DgInitEFCore.Configuration.Startup
 {

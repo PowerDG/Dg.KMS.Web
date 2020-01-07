@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Abp.Domain.Entities;
+//using Abp.Domain.Entities;
 
 namespace Abp.Domain.Uow
 {

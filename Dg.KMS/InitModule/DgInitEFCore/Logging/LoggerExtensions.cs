@@ -1,5 +1,6 @@
 using System;
-using Castle.Core.Logging;
+//using Castle.Core.Logging;
+using DgInitEFCore;
 
 namespace Abp.Logging
 {

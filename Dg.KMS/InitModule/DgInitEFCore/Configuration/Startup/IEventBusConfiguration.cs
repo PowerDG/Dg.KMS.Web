@@ -1,5 +1,5 @@
 ﻿using Abp.Dependency;
-using Abp.Events.Bus;
+//using Abp.Events.Bus;
 
 namespace DgInitEFCore.Configuration.Startup
 {
@@ -15,6 +15,6 @@ namespace DgInitEFCore.Configuration.Startup
         /// it can be set to false.
         /// Default: true.
         /// </summary>
-        bool UseDefaultEventBus { get; set; }
+        //bool UseDefaultEventBus { get; set; }
     }
 }

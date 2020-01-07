@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-using Abp.MultiTenancy;
+//using Abp.MultiTenancy;
+using DgInitEFCore.MultiTenancy;
 
 namespace Abp.Domain.Uow
 {

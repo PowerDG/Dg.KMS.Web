@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Globalization;
-using Abp.Configuration.Startup;
+//using Abp.Configuration.Startup;
 using Abp.Dependency;
+using DgInitEFCore.Configuration.Startup;
 
 namespace Abp.Localization.Sources
 {
@@ -18,7 +19,7 @@ namespace Abp.Localization.Sources
         /// <summary>
         /// This method is called by ABP before first usage.
         /// </summary>
-        void Initialize(ILocalizationConfiguration configuration, IIocResolver iocResolver);
+        //void Initialize(ILocalizationConfiguration configuration, IIocResolver iocResolver);
 
         /// <summary>
         /// Gets localized string for given name in current language.

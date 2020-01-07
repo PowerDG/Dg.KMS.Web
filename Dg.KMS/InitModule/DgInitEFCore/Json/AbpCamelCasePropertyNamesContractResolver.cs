@@ -1,7 +1,8 @@
 using System;
 using System.Reflection;
-using Abp.Reflection;
+//using Abp.Reflection;
 using Abp.Timing;
+using DgInitEFCore.Reflection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 

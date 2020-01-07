@@ -4,7 +4,9 @@ using System.Linq;
 using System.Reflection;
 using System.Transactions;
 using Abp.Application.Services;
-using Abp.Domain.Repositories;
+//using Abp.Domain.Repositories;
+using DgInitEFCore;
+using DgInitEFCore.Application;
 
 namespace Abp.Domain.Uow
 {

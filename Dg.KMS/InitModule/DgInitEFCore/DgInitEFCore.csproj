@@ -7,36 +7,108 @@
 
   <ItemGroup>
     <Compile Remove="Configuration\**" />
+    <Compile Remove="Dependency\**" />
     <Content Remove="Configuration\**" />
+    <Content Remove="Dependency\**" />
     <EmbeddedResource Remove="Configuration\**" />
+    <EmbeddedResource Remove="Dependency\**" />
     <None Remove="Configuration\**" />
+    <None Remove="Dependency\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Application\Features\FeatureChecker.cs" />
+    <Compile Remove="Application\Features\FeatureCheckerExtensions.cs" />
+    <Compile Remove="Application\Features\FeatureConfiguration.cs" />
+    <Compile Remove="Application\Features\FeatureDefinitionContextBase.cs" />
+    <Compile Remove="Application\Features\FeatureDependencyContext.cs" />
+    <Compile Remove="Application\Features\FeatureManager.cs" />
+    <Compile Remove="Application\Features\FeatureProvider.cs" />
+    <Compile Remove="Application\Features\IFeatureChecker.cs" />
+    <Compile Remove="Application\Features\IFeatureConfiguration.cs" />
+    <Compile Remove="Application\Features\IFeatureDefinitionContext.cs" />
+    <Compile Remove="Application\Features\IFeatureDependencyContext.cs" />
+    <Compile Remove="Application\Features\SimpleFeatureDependency.cs" />
+    <Compile Remove="Application\Navigation\HasMenuItemDefinitionsExtensions.cs" />
+    <Compile Remove="Application\Navigation\INavigationManager.cs" />
+    <Compile Remove="Application\Navigation\MenuDefinition.cs" />
+    <Compile Remove="Application\Navigation\MenuItemDefinition.cs" />
+    <Compile Remove="Application\Navigation\MenuItemDefinitionExtensions.cs" />
+    <Compile Remove="Application\Navigation\NavigationManager.cs" />
+    <Compile Remove="Application\Navigation\NavigationProviderContext.cs" />
+    <Compile Remove="Application\Navigation\UserMenu.cs" />
+    <Compile Remove="Application\Navigation\UserMenuItem.cs" />
+    <Compile Remove="Application\Navigation\UserNavigationManager.cs" />
+    <Compile Remove="Application\Services\ApplicationService.cs" />
+    <Compile Remove="Application\Services\AsyncCrudAppService.cs" />
+    <Compile Remove="Application\Services\CrudAppService.cs" />
+    <Compile Remove="Application\Services\CrudAppServiceBase.cs" />
     <Compile Remove="Domain\Entities\AggregateRoot.cs" />
     <Compile Remove="Domain\Entities\Auditing\AuditedAggregateRoot.cs" />
     <Compile Remove="Domain\Entities\Auditing\CreationAuditedAggregateRoot.cs" />
     <Compile Remove="Domain\Entities\Auditing\FullAuditedAggregateRoot.cs" />
+    <Compile Remove="Domain\Uow\AsyncLocalCurrentUnitOfWorkProvider.cs" />
+    <Compile Remove="Domain\Uow\DefaultConnectionStringResolver.cs" />
+    <Compile Remove="Domain\Uow\NullUnitOfWork.cs" />
+    <Compile Remove="Domain\Uow\UnitOfWorkBase.cs" />
+    <Compile Remove="Domain\Uow\UnitOfWorkInterceptor.cs" />
+    <Compile Remove="Domain\Uow\UnitOfWorkManager.cs" />
+    <Compile Remove="Domain\Uow\UnitOfWorkRegistrar.cs" />
+    <Compile Remove="IShouldInitialize.cs" />
+    <Compile Remove="Localization\AbpDisplayNameAttribute.cs" />
+    <Compile Remove="Localization\Dictionaries\DictionaryBasedLocalizationSource.cs" />
+    <Compile Remove="Localization\LocalizableStringExtensions.cs" />
+    <Compile Remove="Localization\LocalizableStringToStringJsonConverter.cs" />
+    <Compile Remove="Localization\LocalizationContext.cs" />
+    <Compile Remove="Localization\LocalizationHelper.cs" />
+    <Compile Remove="Localization\LocalizationManager.cs" />
+    <Compile Remove="Localization\LocalizationSettingProvider.cs" />
+    <Compile Remove="Localization\LocalizationSourceHelper.cs" />
+    <Compile Remove="Localization\Sources\Resource\ResourceFileLocalizationSource.cs" />
+    <Compile Remove="Logging\LoggerExtensions.cs" />
     <Compile Remove="Logging\LogHelper.cs" />
     <Compile Remove="Modules\AbpModule.cs" />
     <Compile Remove="Modules\AbpModuleCollection.cs" />
+    <Compile Remove="Modules\AbpModuleInfo.cs" />
     <Compile Remove="Modules\AbpModuleManager.cs" />
+    <Compile Remove="Modules\IAbpModuleManager.cs" />
     <Compile Remove="MultiTenancy\TenantResolver.cs" />
+    <Compile Remove="Reflection\AbpAssemblyFinder.cs" />
+    <Compile Remove="Reflection\AssemblyHelper.cs" />
     <Compile Remove="Reflection\ProxyHelper.cs" />
     <Compile Remove="Reflection\TypeFinder.cs" />
+    <Compile Remove="Runtime\Caching\CacheBase.cs" />
+    <Compile Remove="Runtime\Caching\Configuration\CachingConfiguration.cs" />
+    <Compile Remove="Runtime\Caching\Memory\AbpMemoryCache.cs" />
+    <Compile Remove="Runtime\Caching\Memory\AbpMemoryCacheManager.cs" />
+    <Compile Remove="Runtime\Remoting\DataContextAmbientScopeProvider.cs" />
+    <Compile Remove="Runtime\Session\NullAbpSession.cs" />
+    <Compile Remove="Runtime\Validation\CustomValidationContext.cs" />
+    <Compile Remove="Runtime\Validation\CustomValidationContextExtensions.cs" />
+    <Compile Remove="Runtime\Validation\Interception\CustomValidator.cs" />
+    <Compile Remove="Runtime\Validation\Interception\MethodInvocationValidator.cs" />
+    <Compile Remove="Runtime\Validation\Interception\ValidationInterceptor.cs" />
+    <Compile Remove="Runtime\Validation\Interception\ValidationInterceptorRegistrar.cs" />
+    <Compile Remove="Timing\TimingSettingProvider.cs" />
+    <Compile Remove="UI\Inputs\ComboboxInputType.cs" />
+    <Compile Remove="UI\Inputs\ILocalizableComboboxItem.cs" />
+    <Compile Remove="UI\Inputs\ILocalizableComboboxItemSource.cs" />
+    <Compile Remove="UI\Inputs\LocalizableComboboxItem.cs" />
+    <Compile Remove="UI\Inputs\StaticLocalizableComboboxItemSource.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="Configuration\HiddenSettingClientVisibilityProvider.cs" />
-    <Compile Include="Configuration\ISettingClientVisibilityProvider.cs" />
-    <Compile Include="Configuration\ISettingDefinitionManager.cs" />
     <Compile Include="Configuration\ISettingManager.cs" />
-    <Compile Include="Configuration\SettingDefinition.cs" />
+    <Compile Include="Configuration\ISettingValue.cs" />
     <Compile Include="Configuration\SettingDefinitionGroup.cs" />
-    <Compile Include="Configuration\SettingDefinitionProviderContext.cs" />
-    <Compile Include="Configuration\SettingProvider.cs" />
     <Compile Include="Configuration\SettingScope.cs" />
-    <Compile Include="Configuration\VisibleSettingClientVisibilityProvider.cs" />
+    <Compile Include="Configuration\Startup\IEventBusConfiguration.cs" />
+    <Compile Include="Configuration\Startup\ILocalizationConfiguration.cs" />
+    <Compile Include="Configuration\Startup\ILocalizationSourceList.cs" />
+    <Compile Include="Configuration\Startup\IMultiTenancyConfig.cs" />
+    <Compile Include="Configuration\Startup\INavigationConfiguration.cs" />
+    <Compile Include="Dependency\ISingletonDependency.cs" />
+    <Compile Include="Dependency\ITransientDependency.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -56,6 +128,8 @@
 
   <ItemGroup>
     <Folder Include="DgContext\" />
+    <Folder Include="Localization\Sources\Resource\" />
+    <Folder Include="Runtime\Caching\Memory\" />
   </ItemGroup>
 
 </Project>

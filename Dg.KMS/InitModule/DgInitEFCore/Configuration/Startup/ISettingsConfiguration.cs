@@ -1,4 +1,5 @@
 ﻿using Abp.Collections;
+using DgInitEFCore.Collections;
 
 namespace DgInitEFCore.Configuration.Startup
 {

@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Threading;
 using Abp.Dependency;
+using DgInitEFCore;
 
 namespace Abp.Localization
 {

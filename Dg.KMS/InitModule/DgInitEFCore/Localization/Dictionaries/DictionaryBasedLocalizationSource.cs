@@ -1,11 +1,14 @@
+using DgInitEFCore;
+using DgInitEFCore.Configuration.Startup;
+using DgInitEFCore.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Globalization;
-using Abp.Configuration.Startup;
-using Abp.Dependency;
-using Abp.Extensions;
-using Castle.Core.Logging;
+//using Abp.Configuration.Startup;
+//using Abp.Dependency;
+//using Abp.Extensions;
+//using Castle.Core.Logging;
 
 namespace Abp.Localization.Dictionaries
 {

@@ -1,5 +1,6 @@
-﻿using System.Globalization;
-using Abp.Extensions;
+﻿using DgInitEFCore.Extensions;
+using System.Globalization;
+//using Abp.Extensions;
 
 namespace Abp.Localization
 {

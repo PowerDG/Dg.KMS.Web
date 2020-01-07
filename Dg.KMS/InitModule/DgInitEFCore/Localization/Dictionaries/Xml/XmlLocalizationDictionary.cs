@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Xml;
-using Abp.Collections.Extensions;
-using Abp.Extensions;
+//using Abp.Collections.Extensions;
+//using Abp.Extensions;
 using Abp.Xml.Extensions;
+using DgInitEFCore;
+using DgInitEFCore.Collections.Extensions;
+using DgInitEFCore.Extensions;
 
 namespace Abp.Localization.Dictionaries.Xml
 {

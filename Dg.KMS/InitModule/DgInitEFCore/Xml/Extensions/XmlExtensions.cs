@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using DgInitEFCore;
+using System.Linq;
 using System.Xml;
 
 namespace Abp.Xml.Extensions

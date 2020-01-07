@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-using Abp.Configuration;
+//using Abp.Configuration;
+using DgInitEFCore.Configuration;
 
 namespace Abp.Localization
 {
