@@ -10,10 +10,19 @@ namespace NotNullTest
     {
         public static void Main(string[] args)
         {
-            NullModelTest();
 
-            //PageTest();
-            extendLoadGamePrint();
+            Console.WriteLine("aaa");
+            DateTime? ad = null;
+             var cc=(ad)?.ToString("yyyy-MM-dd HH:mm:ss");
+
+            Console.WriteLine("bbb");
+            Console.WriteLine(cc);
+
+            Console.WriteLine("ccc");
+            //NullModelTest();
+
+            ////PageTest();
+            //extendLoadGamePrint();
             //var dict = GetDict();
             //Console.WriteLine("Hello World!" + dict[221] + "--" + ProductsMapper().ToList().Count() + "！！");
         }
