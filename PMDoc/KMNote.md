@@ -4,6 +4,23 @@ MindMap
 
 
 
+面板
+
+Knowledge面板【学科树】
+
+- 官方认定
+- 本地私人
+- Map-Tree    Node
+  - Title-Summary-
+
+书签 Tag
+
+文件doc PDF MarkDowm 自写文档
+
+
+
+图片。文件。前置+相对Url
+
 
 
 
