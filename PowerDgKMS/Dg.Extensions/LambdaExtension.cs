@@ -129,5 +129,36 @@ namespace Dg.Extensions
         }
 
         #endregion
+
+        #region Switch
+        public static TOutput Switch<TOutput, TInput>(this TInput input, IEnumerable<TInput> inputSource, IEnumerable<TOutput> outputSource, TOutput defaultOutput)
+        {
+            IEnumerator<TInput> inputIterator = inputSource.GetEnumerator();
+            IEnumerator<TOutput> outputIterator = outputSource.GetEnumerator();
+
+            TOutput result = defaultOutput;
+            while (inputIterator.MoveNext())
+            {
+                if (outputIterator.MoveNext())
+                {
+                    if (input.Equals(inputIterator.Current))
+                    {
+                        result = outputIterator.Current;
+                        break;
+                    }
+                }
+                else break;
+            }
+            return result;
+        }
+
+        #endregion
+
+        #region While
+        public static void While<T>(this T t, Predicate<T> predicate, Action<T> action) where T : class
+        {
+            while (predicate(t)) action(t);
+        }
+        #endregion
     }
 }
