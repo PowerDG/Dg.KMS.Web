@@ -8,6 +8,50 @@ namespace Dg.Extensions
 {
     public static class LambdaExtension
     {
+
+        #region if
+
+        /// <summary>
+        /// 
+        /// 对引用类型我们可以使用Action<T>，也以使用链式编程的方式将多个If串起来。
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <param name="predicate"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public static T If<T>(this T t, Predicate<T> predicate, Action<T> action) where T : class
+        {
+            if (t == null) throw new ArgumentNullException();
+            if (predicate(t)) action(t);
+            return t;
+        }
+        /// <summary>
+        /// 但对值类型来说，就要用Func<T, T> 了，每次返回一个新的值 ： 
+
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <param name="predicate"></param>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        public static T If<T>(this T t, Predicate<T> predicate, Func<T, T> func) where T : struct
+        {
+            return predicate(t) ? func(t) : t;
+        }
+        /// <summary>
+        /// 两个扩展，一个是给值类型的，一个给引用类型，可string类型在这里都不行
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="predicate"></param>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        public static string If(this string s, Predicate<string> predicate, Func<string, string> func)
+        {
+            return predicate(s) ? func(s) : s;
+        }
+        #endregion
+
         #region WhereIfExtension
 
         /// <summary>
