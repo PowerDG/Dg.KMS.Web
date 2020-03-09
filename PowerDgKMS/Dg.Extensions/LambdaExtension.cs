@@ -39,8 +39,18 @@ namespace Dg.Extensions
         #endregion
 
         #region IsBetween
+        /// <summary>
+        /// https://www.cnblogs.com/ldp615/archive/2011/02/18/IsBetween-ExtensionMethod.html
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <param name="lowerBound"></param>
+        /// <param name="upperBound"></param>
+        /// <param name="includeLowerBound"></param>
+        /// <param name="includeUpperBound"></param>
+        /// <returns></returns>
         public static bool IsBetween<T>(this T t, T lowerBound, T upperBound,
-    bool includeLowerBound = false, bool includeUpperBound = false)
+            bool includeLowerBound = false, bool includeUpperBound = false)
         where T : IComparable<T>
         {
             if (t == null) throw new ArgumentNullException("t");
@@ -52,6 +62,28 @@ namespace Dg.Extensions
                 (includeUpperBound && upperCompareResult == 0) ||
                 (lowerCompareResult > 0 && upperCompareResult < 0);
         }
+        public static bool IntIsBetween(this int i, int lowerBound, int upperBound,
+            bool includeLowerBound = false, bool includeUpperBound = false)
+        {
+            return (includeLowerBound && i == lowerBound) ||
+                (includeUpperBound && i == upperBound) ||
+                (i > lowerBound && i < upperBound);
+        }
+        public static bool IntIsBetween(this long i, long lowerBound, long upperBound,
+            bool includeLowerBound = false, bool includeUpperBound = false)
+        {
+            return (includeLowerBound && i == lowerBound) ||
+                (includeUpperBound && i == upperBound) ||
+                (i > lowerBound && i < upperBound);
+        }
+        public static bool DoubleIsBetween(this float i, float lowerBound, float upperBound,
+                bool includeLowerBound = false, bool includeUpperBound = false)
+        {
+            return (includeLowerBound && i == lowerBound) ||
+                (includeUpperBound && i == upperBound) ||
+                (i > lowerBound && i < upperBound);
+        }
+
         #endregion
     }
 }
