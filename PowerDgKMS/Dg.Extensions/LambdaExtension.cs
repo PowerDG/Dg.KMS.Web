@@ -26,6 +26,17 @@ namespace Dg.Extensions
             if (predicate(t)) action(t);
             return t;
         }
+        public static T If<T>(this T t, Predicate<T> predicate, params Action<T>[] actions) where T : class
+        {
+            if (t == null) throw new ArgumentNullException();
+            if (predicate(t))
+            {
+                foreach (var action in actions)
+                    action(t);
+            }
+            return t;
+        }
+
         /// <summary>
         /// 但对值类型来说，就要用Func<T, T> 了，每次返回一个新的值 ： 
 
@@ -130,6 +141,22 @@ namespace Dg.Extensions
 
         #endregion
 
+        #region While
+        public static void While<T>(this T t, Predicate<T> predicate, Action<T> action) where T : class
+        {
+            while (predicate(t)) action(t);
+        }
+        public static void While<T>(this T t, Predicate<T> predicate, params Action<T>[] actions) where T : class
+        {
+            while (predicate(t))
+            {
+                foreach (var action in actions)
+                    action(t);
+            }
+        }
+        #endregion
+
+
         #region Switch
         public static TOutput Switch<TOutput, TInput>(this TInput input, IEnumerable<TInput> inputSource, IEnumerable<TOutput> outputSource, TOutput defaultOutput)
         {
@@ -154,11 +181,17 @@ namespace Dg.Extensions
 
         #endregion
 
-        #region While
-        public static void While<T>(this T t, Predicate<T> predicate, Action<T> action) where T : class
+    }
+
+
+    public class SwithCase<TCase, TOther>
+    {
+        public SwithCase(TCase value, Action<TOther> action)
         {
-            while (predicate(t)) action(t);
+            Value = value;
+            Action = action;
         }
-        #endregion
+        public TCase Value { get; private set; }
+        public Action<TOther> Action { get; private set; }
     }
 }
