@@ -3,6 +3,7 @@ using Paged;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace NotNullTest
 {
@@ -11,22 +12,68 @@ namespace NotNullTest
         public static void Main(string[] args)
         {
 
-            Console.WriteLine("aaa");
-            DateTime? ad = null;
-             var cc=(ad)?.ToString("yyyy-MM-dd HH:mm:ss");
+            //Console.WriteLine("aaa");
+            //DateTime? ad = null;
+            // var cc=(ad)?.ToString("yyyy-MM-dd HH:mm:ss");
 
-            Console.WriteLine("bbb");
-            Console.WriteLine(cc);
+            //Console.WriteLine("bbb");
+            //Console.WriteLine(cc);
 
-            Console.WriteLine("ccc");
+            //Console.WriteLine("ccc");
+
+            testAsParallel();
+
             //NullModelTest();
 
             ////PageTest();
             //extendLoadGamePrint();
             //var dict = GetDict();
             //Console.WriteLine("Hello World!" + dict[221] + "--" + ProductsMapper().ToList().Count() + "！！");
+
+            Console.ReadKey();
         }
 
+        public static async Task<IEnumerable<int>> GetRelatedChildSplitOrderIDsAsync(int orderId, bool readOnly)
+        {
+            List<int> relatedIDs = new List<int>();
+            IEnumerable<int> tempids = new List<int> { orderId };
+            do
+            {
+                relatedIDs.AddRange(tempids);
+                var childids = await  GetRelatedChildSplitOrderIDsAsync(tempids);
+                tempids = childids;
+            } while (tempids.Any());
+
+            return relatedIDs;
+        }
+        public static async Task<IEnumerable<int>>  testAsParallel()
+        {
+            var numbers = Enumerable.Range(0, 5000);
+            var result = numbers.AsParallel().AsOrdered().Where(i => i % 2 == 0);
+            foreach (var i in result)
+                Console.WriteLine(i);
+
+            return numbers;
+
+        }
+
+        public static async Task<IEnumerable<int>> GetRelatedChildSplitOrderIDsAsync(IEnumerable<int> orderId )
+        {
+            var numbers = Enumerable.Range(0, 100);
+            var result = numbers.AsParallel().AsOrdered().Where(i => i % 2 == 0);
+            foreach (var i in result)
+                Console.WriteLine(i);
+            List<int> relatedIDs = new List<int>();
+            IEnumerable<int> tempids = new List<int> { orderId?.FirstOrDefault()??0 };
+            do
+            {
+                relatedIDs.AddRange(tempids);
+                var childids = relatedIDs;
+                    tempids = childids;
+            } while (tempids.Any());
+
+            return relatedIDs;
+        }
         public static void extendLoadGamePrint()
         {
             new TestProgram().loadGame();
