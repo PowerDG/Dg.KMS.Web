@@ -1,3 +1,13 @@
+https://csharp.hotexamples.com/examples/EvernoteSDK/ENNote/-/php-ennote-class-examples.html
+
+
+
+https://github.com/evernote/evernote-cloud-sdk-windows/blob/master/src/EvernoteSDK/ENSession.cs
+
+
+
+
+
 
 
 https://sandbox.evernote.com/shard/s1/notestore
@@ -8,7 +18,20 @@ https://sandbox.evernote.com/api/DeveloperToken.action
 
 
 
+#### Here is your Evernote API Key
 
+It comes in two parts: a **Consumer Key** and a **Consumer Secret**. Both are required to authenticate with the Evernote API and receive an  authentication token. Your Consumer Secret should be kept private and  not shared.
+
+- Consumer Key: `wangshuxin`
+- Consumer Secret: `500dd1466d35b2e5`
+
+Both of these values will be sent to you via email.
+
+
+
+
+
+![image-20200328164955725](dev.assets/image-20200328164955725.png)
 
 -------
 
