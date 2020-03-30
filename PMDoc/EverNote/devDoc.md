@@ -209,6 +209,12 @@ Notebook theNewNotebook = noteStore.createNotebook(authToken, notebook);`
 
 每个用户帐户都包含零个或多个 [Tags](https://dev.yinxiang.com/doc/reference/Types.html#Struct_Tag)，这些标签是帮助用户查找相关笔记的组织工具。标签只能应用在 [Notes](https://dev.yinxiang.com/doc/reference/Types.html#Struct_Note) 上；[Notebooks](https://dev.yinxiang.com/doc/reference/Types.html#Struct_Notebook), [Resources](https://dev.yinxiang.com/doc/reference/Types.html#Struct_Resource) 和其他对象不能有标签。
 
+
+
+
+
+Returns a list of the tags in the account.  Evernote does not support the undeletion of tags, so this will only include active tags.
+
 标签是印象笔记数据模型中完整的对象。一个被标记为“食物”的笔记并不保存字符串“食物”，而是包含一个指向名字为“食物”的标签对象的引用。标签的名字在用户帐户中是唯一的。如果一个笔记被标记为“食物”，那么这个标签和这个帐户中其他笔记的“食物”标签是同一个。每个标签都可以被指定给任意数目的笔记，并且每个笔记可以有任意数目的标签。
 
 很多用户喜欢在一个线性的字母排序的列表中查找和使用他们的标签，而一些高级用户需要一个树形组织的结构来寻找一个特定的标签。数据模型包含一个简单的组织方案。在标签列表中，一个标签可以作为另一个标签的“子标签”。“子标签”和“父标签”的相对位置并不反映它们之间的任何语义上的关系。这只是一个为所有标签设计的简单的布局选项。一个没有父节点的标签被认为是用作显示和导航目的的“顶级”标签。
