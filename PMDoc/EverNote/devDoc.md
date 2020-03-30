@@ -211,7 +211,7 @@ Notebook theNewNotebook = noteStore.createNotebook(authToken, notebook);`
 
 
 
-
+##### Function: NoteStore.listTags
 
 Returns a list of the tags in the account.  Evernote does not support the undeletion of tags, so this will only include active tags.
 
