@@ -213,6 +213,26 @@ Notebook theNewNotebook = noteStore.createNotebook(authToken, notebook);`
 
 ##### Function: NoteStore.listTags
 
+#### createTag
+
+#### updateTag
+
+#### expungeTag
+
+#### untagAll
+
+
+
+
+
+#### getTag
+
+```java 
+Types.Tag getTag(string authenticationToken,
+                 Types.Guid guid)
+    throws Errors.EDAMUserException, Errors.EDAMSystemException, Errors.EDAMNotFoundException
+```
+
 Returns a list of the tags in the account.  Evernote does not support the undeletion of tags, so this will only include active tags.
 
 标签是印象笔记数据模型中完整的对象。一个被标记为“食物”的笔记并不保存字符串“食物”，而是包含一个指向名字为“食物”的标签对象的引用。标签的名字在用户帐户中是唯一的。如果一个笔记被标记为“食物”，那么这个标签和这个帐户中其他笔记的“食物”标签是同一个。每个标签都可以被指定给任意数目的笔记，并且每个笔记可以有任意数目的标签。
