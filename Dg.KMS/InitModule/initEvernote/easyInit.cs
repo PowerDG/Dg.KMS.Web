@@ -9,6 +9,17 @@ using System.Text;
 
 namespace initEvernote
 {
+    /// <summary>
+    /// Evernote API: All declarations
+    /// https://dev.yinxiang.com/doc/reference/
+    /// 
+    /// Evernote Cloud SDK 2.0 for Windows
+    /// https://github.com/yinxiang-dev/evernote-cloud-sdk-windows
+    /// Getting Started with the Evernote Cloud SDK for Windows
+    /// https://github.com/evernote/evernote-cloud-sdk-windows/blob/master/Getting_Started.md
+    /// Working with the Advanced (EDAM) API
+    /// https://github.com/evernote/evernote-cloud-sdk-windows/blob/master/Working_with_the_Advanced_(EDAM)_API.md
+    /// </summary>
     public class EasyInit
     {
         public static void Test()
