@@ -2,16 +2,20 @@
 using System;
 using EvernoteSDK;
 using EvernoteSDK.Advanced;
+using Evernote.EDAM.Type;
+using Newtonsoft.Json;
+
 namespace eTest
 {
     class Program
     {
         static void Main(string[] args)
         {
+            EasyInit.SetNSession();
 
 
-            EasyInit.Test();
-           
+            EasyInit.SetENSessionAdvanced();
+            Console.ReadKey();
         }
 
 
