@@ -8,6 +8,15 @@ namespace eTest
     {
         static void Main(string[] args)
         {
+
+
+            EasyInit.Test();
+           
+        }
+
+
+        public static void Test()
+        {
             Console.WriteLine("Hello World!");
             //(new EasyInit()).open();
 
@@ -25,6 +34,9 @@ namespace eTest
 
 
             Console.WriteLine("Hello World!");
+
+            Console.ReadKey();
         }
+
     }
 }
