@@ -11,10 +11,10 @@ namespace eTest
     {
         static void Main(string[] args)
         {
-            EasyInit.SetNSession();
+            EasyInit.SetMyENSessionAdvanced();
 
 
-            EasyInit.SetENSessionAdvanced();
+            //EasyInit.SetENSessionAdvanced();
             Console.ReadKey();
         }
 
