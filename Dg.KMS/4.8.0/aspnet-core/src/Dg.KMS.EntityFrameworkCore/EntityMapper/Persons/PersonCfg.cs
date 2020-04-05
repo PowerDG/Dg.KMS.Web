@@ -14,9 +14,9 @@ namespace Dg.KMS.EntityMapper.Persons
             builder.ToTable("Persons", YoYoAbpefCoreConsts.SchemaNames.CMS);
 
             
-			builder.Property(a => a.Name).HasMaxLength(YoYoAbpefCoreConsts.EntityLengthNames.Length64);
-			builder.Property(a => a.CreationTime).HasMaxLength(YoYoAbpefCoreConsts.EntityLengthNames.Length64);
-			builder.Property(a => a.Roles).HasMaxLength(YoYoAbpefCoreConsts.EntityLengthNames.Length64);
+			//builder.Property(a => a.Name).HasMaxLength(YoYoAbpefCoreConsts.EntityLengthNames.Length64);
+			//builder.Property(a => a.CreationTime).HasMaxLength(YoYoAbpefCoreConsts.EntityLengthNames.Length64);
+			//builder.Property(a => a.Roles).HasMaxLength(YoYoAbpefCoreConsts.EntityLengthNames.Length64);
 
 
         }

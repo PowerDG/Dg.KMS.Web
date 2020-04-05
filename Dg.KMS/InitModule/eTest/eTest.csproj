@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\initEvernote\initEvernote.csproj" />
+    <ProjectReference Include="..\initEvernote\dgEvernote.Core.csproj" />
   </ItemGroup>
 
 </Project>

@@ -7,12 +7,12 @@ namespace dgPower.PKMS.EntityFrameworkCore
     {
         public static void Configure(DbContextOptionsBuilder<PKMSDbContext> builder, string connectionString)
         {
-            builder.UseSqlServer(connectionString);
+            builder.UseNpgsql(connectionString);
         }
 
         public static void Configure(DbContextOptionsBuilder<PKMSDbContext> builder, DbConnection connection)
         {
-            builder.UseSqlServer(connection);
+            builder.UseNpgsql(connection);
         }
     }
 }

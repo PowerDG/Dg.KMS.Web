@@ -1,4 +1,4 @@
-﻿using initEvernote;
+﻿using dgEvernote.Core;
 using System;
 using EvernoteSDK;
 using EvernoteSDK.Advanced;
