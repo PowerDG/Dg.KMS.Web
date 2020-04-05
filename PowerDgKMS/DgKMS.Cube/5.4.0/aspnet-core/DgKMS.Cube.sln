@@ -7,21 +7,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AFAA0841-BD9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F10AA149-2626-486E-85BB-9CD5365F3016}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dgPower.PKMS.Core", "src\dgPower.PKMS.Core\dgPower.PKMS.Core.csproj", "{0FA75A5B-AB83-4FD0-B545-279774C01E87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DgKMS.Cube.Core", "src\DgKMS.Cube.Core\DgKMS.Cube.Core.csproj", "{0FA75A5B-AB83-4FD0-B545-279774C01E87}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dgPower.PKMS.Application", "src\dgPower.PKMS.Application\dgPower.PKMS.Application.csproj", "{3870C648-4AEA-4B85-BA3F-F2F63B96136A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DgKMS.Cube.Application", "src\DgKMS.Cube.Application\DgKMS.Cube.Application.csproj", "{3870C648-4AEA-4B85-BA3F-F2F63B96136A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dgPower.PKMS.Tests", "test\dgPower.PKMS.Tests\dgPower.PKMS.Tests.csproj", "{0D4C5D00-C144-4213-A007-4B8944113AB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DgKMS.Cube.Tests", "test\DgKMS.Cube.Tests\DgKMS.Cube.Tests.csproj", "{0D4C5D00-C144-4213-A007-4B8944113AB1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dgPower.PKMS.Migrator", "src\dgPower.PKMS.Migrator\dgPower.PKMS.Migrator.csproj", "{880B3591-E057-46FE-B525-10BD83828B93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DgKMS.Cube.Migrator", "src\DgKMS.Cube.Migrator\DgKMS.Cube.Migrator.csproj", "{880B3591-E057-46FE-B525-10BD83828B93}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dgPower.PKMS.Web.Host", "src\dgPower.PKMS.Web.Host\dgPower.PKMS.Web.Host.csproj", "{38E184BD-E874-4633-A947-AED4FDB73F40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DgKMS.Cube.Web.Host", "src\DgKMS.Cube.Web.Host\DgKMS.Cube.Web.Host.csproj", "{38E184BD-E874-4633-A947-AED4FDB73F40}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dgPower.PKMS.Web.Core", "src\dgPower.PKMS.Web.Core\dgPower.PKMS.Web.Core.csproj", "{22CFE0D2-8DCA-42D7-AD7D-784C3862493F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DgKMS.Cube.Web.Core", "src\DgKMS.Cube.Web.Core\DgKMS.Cube.Web.Core.csproj", "{22CFE0D2-8DCA-42D7-AD7D-784C3862493F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dgPower.PKMS.EntityFrameworkCore", "src\dgPower.PKMS.EntityFrameworkCore\dgPower.PKMS.EntityFrameworkCore.csproj", "{E0580562-F8F2-4EBB-B07A-ABFC6F2C314F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DgKMS.Cube.EntityFrameworkCore", "src\DgKMS.Cube.EntityFrameworkCore\DgKMS.Cube.EntityFrameworkCore.csproj", "{E0580562-F8F2-4EBB-B07A-ABFC6F2C314F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dgTools", "dgTools", "{71049FF1-A3DF-43BA-BFC6-F74155CDE038}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EvernoteSDK", "EvernoteSDK", "{6778DC32-3C36-4C62-B528-26EA1E97F386}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dgEvernote.Core", "..\..\..\..\Evernote\dgEvernote.Core\dgEvernote.Core.csproj", "{93D663B6-F739-4838-81D9-78952A1680FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{E0580562-F8F2-4EBB-B07A-ABFC6F2C314F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0580562-F8F2-4EBB-B07A-ABFC6F2C314F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0580562-F8F2-4EBB-B07A-ABFC6F2C314F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93D663B6-F739-4838-81D9-78952A1680FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93D663B6-F739-4838-81D9-78952A1680FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93D663B6-F739-4838-81D9-78952A1680FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93D663B6-F739-4838-81D9-78952A1680FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,8 +75,9 @@ Global
 		{38E184BD-E874-4633-A947-AED4FDB73F40} = {AFAA0841-BD93-466F-B8F4-FB4EEC86F1FC}
 		{22CFE0D2-8DCA-42D7-AD7D-784C3862493F} = {AFAA0841-BD93-466F-B8F4-FB4EEC86F1FC}
 		{E0580562-F8F2-4EBB-B07A-ABFC6F2C314F} = {AFAA0841-BD93-466F-B8F4-FB4EEC86F1FC}
+		{93D663B6-F739-4838-81D9-78952A1680FF} = {6778DC32-3C36-4C62-B528-26EA1E97F386}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2F9BC1FE-B8C7-4B6B-83CF-61AC93C66E91}
+		SolutionGuid = {AE7F9705-1F96-48E7-92D7-5695B47445E3}
 	EndGlobalSection
 EndGlobal

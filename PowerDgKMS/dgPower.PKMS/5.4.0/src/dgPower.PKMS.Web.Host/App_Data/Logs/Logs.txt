@@ -1,0 +1,84 @@
+DEBUG 2020-04-05 22:30:49,074 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2020-04-05 22:30:49,264 [1    ] Abp.Modules.AbpModuleManager             - Found 15 ABP modules in total.
+DEBUG 2020-04-05 22:30:49,285 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: dgPower.PKMS.Web.Host.Startup.PKMSWebHostModule, dgPower.PKMS.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-04-05 22:30:49,288 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: dgPower.PKMS.PKMSWebCoreModule, dgPower.PKMS.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-04-05 22:30:49,289 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: dgPower.PKMS.PKMSApplicationModule, dgPower.PKMS.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-04-05 22:30:49,290 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: dgPower.PKMS.PKMSCoreModule, dgPower.PKMS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-04-05 22:30:49,290 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=5.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-04-05 22:30:49,291 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=5.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-04-05 22:30:49,291 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=5.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-04-05 22:30:49,292 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=5.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-04-05 22:30:49,292 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: dgPower.PKMS.EntityFrameworkCore.PKMSEntityFrameworkModule, dgPower.PKMS.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-04-05 22:30:49,292 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=5.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-04-05 22:30:49,293 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=5.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-04-05 22:30:49,293 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=5.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-04-05 22:30:49,294 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=5.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-04-05 22:30:49,294 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=5.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-04-05 22:30:49,296 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.SignalR.AbpAspNetCoreSignalRModule, Abp.AspNetCore.SignalR, Version=5.4.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-04-05 22:30:49,301 [1    ] Abp.Modules.AbpModuleManager             - 15 modules loaded.
+DEBUG 2020-04-05 22:30:49,546 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-04-05 22:30:49,547 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-04-05 22:30:49,547 [1    ] o.Configuration.LanguageManagementConfig - Converted PKMS (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-04-05 22:30:49,547 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2020-04-05 22:30:50,252 [1    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: dgPower.PKMS.EntityFrameworkCore.PKMSDbContext, dgPower.PKMS.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2020-04-05 22:30:52,171 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2020-04-05 22:30:52,590 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2020-04-05 22:30:52,673 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2020-04-05 22:30:52,700 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: PKMS
+DEBUG 2020-04-05 22:30:52,747 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2020-04-05 22:30:53,151 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2020-04-05 22:30:53,391 [1    ] , Culture=neutral, PublicKeyToken=null]] - Start background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[dgPower.PKMS.MultiTenancy.Tenant, dgPower.PKMS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[dgPower.PKMS.Authorization.Users.User, dgPower.PKMS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2020-04-05 22:30:53,498 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 8 classes define auto mapping attributes
+DEBUG 2020-04-05 22:30:53,498 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - dgPower.PKMS.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2020-04-05 22:30:53,515 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - dgPower.PKMS.Users.Dto.CreateUserDto
+DEBUG 2020-04-05 22:30:53,518 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - dgPower.PKMS.Users.Dto.UserDto
+DEBUG 2020-04-05 22:30:53,520 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - dgPower.PKMS.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2020-04-05 22:30:53,520 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - dgPower.PKMS.Sessions.Dto.UserLoginInfoDto
+DEBUG 2020-04-05 22:30:53,520 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - dgPower.PKMS.Roles.Dto.PermissionDto
+DEBUG 2020-04-05 22:30:53,521 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - dgPower.PKMS.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2020-04-05 22:30:53,521 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - dgPower.PKMS.MultiTenancy.Dto.TenantDto
+INFO  2020-04-05 22:31:01,761 [1    ] tCore.Builder.RequestLocalizationOptions - Supported Request Localization Cultures: en,es-MX,fr,de,it,nl,pt-BR,tr,ru,ar,zh-Hans,ja
+INFO  2020-04-05 22:31:02,700 [1    ] taProtection.KeyManagement.XmlKeyManager - User profile is available. Using 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+INFO  2020-04-05 22:31:02,723 [1    ] taProtection.KeyManagement.XmlKeyManager - Creating key {973dc4de-0e25-4278-b49b-3de7b31dab9e} with creation date 2020-04-05 14:31:02Z, activation date 2020-04-05 14:31:02Z, and expiration date 2020-07-04 14:31:02Z.
+INFO  2020-04-05 22:31:02,787 [1    ] ion.Repositories.FileSystemXmlRepository - Writing data to file 'C:\Users\Administrator\AppData\Local\ASP.NET\DataProtection-Keys\key-973dc4de-0e25-4278-b49b-3de7b31dab9e.xml'.
+INFO  2020-04-05 22:31:37,824 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2 GET https://localhost:5001/  
+INFO  2020-04-05 22:31:38,191 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 245.9661ms 404 
+INFO  2020-04-05 22:31:38,356 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2 GET https://localhost:5001/favicon.ico  
+INFO  2020-04-05 22:31:38,384 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 29.2858ms 404 
+INFO  2020-04-05 22:32:26,739 [18   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2 GET https://localhost:5001/swagger  
+INFO  2020-04-05 22:32:26,751 [18   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 11.5472ms 301 
+INFO  2020-04-05 22:32:26,773 [16   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2 GET https://localhost:5001/swagger/index.html  
+INFO  2020-04-05 22:32:27,022 [16   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 249.9988ms 200 text/html;charset=utf-8
+INFO  2020-04-05 22:32:27,302 [21   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui.css  
+INFO  2020-04-05 22:32:27,307 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2 GET https://localhost:5001/swagger/ui/abp.swagger.js  
+INFO  2020-04-05 22:32:27,369 [18   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2 GET https://localhost:5001/swagger/ui/abp.js  
+INFO  2020-04-05 22:32:27,373 [19   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui-standalone-preset.js  
+INFO  2020-04-05 22:32:27,374 [16   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui-bundle.js  
+INFO  2020-04-05 22:32:27,511 [13   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.swagger.js'. Physical path: 'E:\devDg\Dg.KMS.Web\PowerDgKMS\dgPower.PKMS\5.4.0\src\dgPower.PKMS.Web.Host\wwwroot\swagger\ui\abp.swagger.js'
+INFO  2020-04-05 22:32:27,512 [21   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.js'. Physical path: 'E:\devDg\Dg.KMS.Web\PowerDgKMS\dgPower.PKMS\5.4.0\src\dgPower.PKMS.Web.Host\wwwroot\swagger\ui\abp.js'
+INFO  2020-04-05 22:32:27,539 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 238.8841ms 200 application/javascript
+INFO  2020-04-05 22:32:27,545 [16   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+INFO  2020-04-05 22:32:27,553 [21   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 239.1024ms 200 application/javascript
+INFO  2020-04-05 22:32:27,558 [22   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+INFO  2020-04-05 22:32:27,613 [22   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 291.9992ms 200 application/javascript
+INFO  2020-04-05 22:32:27,619 [16   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 297.9424ms 200 text/css
+INFO  2020-04-05 22:32:27,637 [16   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+INFO  2020-04-05 22:32:27,653 [16   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 344.8446ms 200 application/javascript
+INFO  2020-04-05 22:32:28,847 [22   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2 GET https://localhost:5001/swagger/favicon-16x16.png  
+INFO  2020-04-05 22:32:28,856 [22   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/favicon-16x16.png'. Physical path: 'N/A'
+INFO  2020-04-05 22:32:28,872 [22   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 17.9726ms 200 image/png
+INFO  2020-04-05 22:32:34,248 [13   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request starting HTTP/2 GET https://localhost:5001/AntiForgery/SetCookie  
+INFO  2020-04-05 22:32:34,259 [13   ] ft.AspNetCore.Routing.EndpointMiddleware - Executing endpoint 'dgPower.PKMS.Web.Host.Controllers.AntiForgeryController.SetCookie (dgPower.PKMS.Web.Host)'
+INFO  2020-04-05 22:32:39,946 [13   ] c.Infrastructure.ControllerActionInvoker - Route matched with {action = "SetCookie", controller = "AntiForgery", area = ""}. Executing controller action with signature Void SetCookie() on controller dgPower.PKMS.Web.Host.Controllers.AntiForgeryController (dgPower.PKMS.Web.Host).
+INFO  2020-04-05 22:32:40,131 [13   ] c.Infrastructure.ControllerActionInvoker - Executing action method dgPower.PKMS.Web.Host.Controllers.AntiForgeryController.SetCookie (dgPower.PKMS.Web.Host) - Validation state: Valid
+INFO  2020-04-05 22:32:40,157 [13   ] c.Infrastructure.ControllerActionInvoker - Executed action method dgPower.PKMS.Web.Host.Controllers.AntiForgeryController.SetCookie (dgPower.PKMS.Web.Host), returned result Microsoft.AspNetCore.Mvc.EmptyResult in 12.7451ms.
+INFO  2020-04-05 22:32:40,369 [21   ] .Mvc.Infrastructure.ObjectResultExecutor - Executing ObjectResult, writing value of type 'Abp.Web.Models.AjaxResponse'.
+INFO  2020-04-05 22:32:40,421 [21   ] c.Infrastructure.ControllerActionInvoker - Executed action dgPower.PKMS.Web.Host.Controllers.AntiForgeryController.SetCookie (dgPower.PKMS.Web.Host) in 462.4541ms
+INFO  2020-04-05 22:32:40,427 [21   ] ft.AspNetCore.Routing.EndpointMiddleware - Executed endpoint 'dgPower.PKMS.Web.Host.Controllers.AntiForgeryController.SetCookie (dgPower.PKMS.Web.Host)'
+INFO  2020-04-05 22:32:40,445 [21   ] Microsoft.AspNetCore.Hosting.Diagnostics - Request finished in 6187.6251ms 200 application/json; charset=utf-8
+DEBUG 2020-04-05 22:41:59,627 [2    ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2020-04-05 22:41:59,630 [2    ] Abp.BackgroundJobs.BackgroundJobManager  - Stop background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2020-04-05 22:41:59,630 [2    ] , Culture=neutral, PublicKeyToken=null]] - Stop background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[dgPower.PKMS.MultiTenancy.Tenant, dgPower.PKMS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[dgPower.PKMS.Authorization.Users.User, dgPower.PKMS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2020-04-05 22:41:59,632 [2    ] Abp.BackgroundJobs.BackgroundJobManager  - WaitToStop background worker: Castle.Proxies.BackgroundJobManagerProxy
+DEBUG 2020-04-05 22:41:59,632 [2    ] , Culture=neutral, PublicKeyToken=null]] - WaitToStop background worker: Abp.Authorization.Users.UserTokenExpirationWorker`2[[dgPower.PKMS.MultiTenancy.Tenant, dgPower.PKMS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[dgPower.PKMS.Authorization.Users.User, dgPower.PKMS.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]
+DEBUG 2020-04-05 22:41:59,632 [2    ] Abp.Modules.AbpModuleManager             - Shutting down completed.
