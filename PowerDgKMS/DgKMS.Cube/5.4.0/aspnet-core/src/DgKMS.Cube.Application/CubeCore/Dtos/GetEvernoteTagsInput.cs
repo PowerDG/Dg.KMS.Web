@@ -1,7 +1,7 @@
 
 using Abp.Runtime.Validation;
-using DgKMS.Cube.Dtos;
 using DgKMS.Cube.CubeCore;
+using DgKMS.Cube.PageDto;
 
 namespace DgKMS.Cube.CubeCore.Dtos
 {

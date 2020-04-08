@@ -205,12 +205,12 @@ EvernoteTagEditDto editDto;
 		/// </summary>
 		/// <returns></returns>
 		
-		public async Task<FileDto> GetToExcelFile()
-		{
-		   var evernoteTags = await _evernoteTagManager.QueryEvernoteTags().ToListAsync();
-            var evernoteTagListDtos = ObjectMapper.Map<List<EvernoteTagListDto>>(evernoteTags);
-            return _evernoteTagListExcelExporter.ExportToExcelFile(evernoteTagListDtos);
-		}
+		//public async Task<FileDto> GetToExcelFile()
+		//{
+		//   var evernoteTags = await _evernoteTagManager.QueryEvernoteTags().ToListAsync();
+  //          var evernoteTagListDtos = ObjectMapper.Map<List<EvernoteTagListDto>>(evernoteTags);
+  //          return _evernoteTagListExcelExporter.ExportToExcelFile(evernoteTagListDtos);
+		//}
 
 		
 

@@ -1,8 +1,7 @@
 
 using System;
 using Abp.Application.Services;
-using Abp.Application.Services.Dto;
-using L._52ABP.Application.Dtos;
+using Abp.Application.Services.Dto; 
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using DgKMS.Cube.CubeCore.Dtos;
@@ -67,7 +66,7 @@ namespace DgKMS.Cube.CubeCore
 		/// 导出为excel文件
 		/// </summary>
 		/// <returns></returns>
-		Task<FileDto> GetToExcelFile();
+		//Task<FileDto> GetToExcelFile();
 		
 		
 		
