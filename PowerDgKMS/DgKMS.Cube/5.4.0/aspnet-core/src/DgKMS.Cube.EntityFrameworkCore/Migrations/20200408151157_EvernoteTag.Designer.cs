@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DgKMS.Cube.Migrations
 {
     [DbContext(typeof(CubeDbContext))]
-    [Migration("20200405145304_InitCube")]
-    partial class InitCube
+    [Migration("20200408151157_EvernoteTag")]
+    partial class EvernoteTag
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1511,6 +1511,42 @@ namespace DgKMS.Cube.Migrations
                     b.HasIndex("TenantId", "NormalizedUserName");
 
                     b.ToTable("AbpUsers");
+                });
+
+            modelBuilder.Entity("DgKMS.Cube.CubeCore.EvernoteTag", b =>
+                {
+                    b.Property<decimal>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("numeric(20,0)");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnName("create_time")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Guid")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnName("is_active")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTime?>("LastModificationTime")
+                        .HasColumnName("modified_time")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ParentGuid")
+                        .HasColumnType("text");
+
+                    b.Property<int>("UpdateSequenceNum")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EvernoteTags");
                 });
 
             modelBuilder.Entity("DgKMS.Cube.MultiTenancy.Tenant", b =>

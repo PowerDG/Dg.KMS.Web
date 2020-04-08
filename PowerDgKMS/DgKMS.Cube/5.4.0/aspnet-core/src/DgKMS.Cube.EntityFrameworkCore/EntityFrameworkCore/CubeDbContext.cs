@@ -3,6 +3,7 @@ using Abp.Zero.EntityFrameworkCore;
 using DgKMS.Cube.Authorization.Roles;
 using DgKMS.Cube.Authorization.Users;
 using DgKMS.Cube.MultiTenancy;
+using DgKMS.Cube.CubeCore;
 
 namespace DgKMS.Cube.EntityFrameworkCore
 {

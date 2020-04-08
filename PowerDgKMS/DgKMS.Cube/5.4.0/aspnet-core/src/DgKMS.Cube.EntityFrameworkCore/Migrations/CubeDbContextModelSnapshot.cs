@@ -1511,6 +1511,42 @@ namespace DgKMS.Cube.Migrations
                     b.ToTable("AbpUsers");
                 });
 
+            modelBuilder.Entity("DgKMS.Cube.CubeCore.EvernoteTag", b =>
+                {
+                    b.Property<decimal>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("numeric(20,0)");
+
+                    b.Property<DateTime>("CreationTime")
+                        .HasColumnName("create_time")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Guid")
+                        .HasColumnType("text");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnName("is_active")
+                        .HasColumnType("boolean");
+
+                    b.Property<DateTime?>("LastModificationTime")
+                        .HasColumnName("modified_time")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ParentGuid")
+                        .HasColumnType("text");
+
+                    b.Property<int>("UpdateSequenceNum")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EvernoteTags");
+                });
+
             modelBuilder.Entity("DgKMS.Cube.MultiTenancy.Tenant", b =>
                 {
                     b.Property<int>("Id")

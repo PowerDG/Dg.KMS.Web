@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DgKMS.Cube.Migrations
 {
-    public partial class InitCube : Migration
+    public partial class EvernoteTag : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -441,6 +441,24 @@ namespace DgKMS.Cube.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AbpWebhookSubscriptions", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "EvernoteTags",
+                columns: table => new
+                {
+                    id = table.Column<decimal>(nullable: false),
+                    Guid = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    ParentGuid = table.Column<string>(nullable: true),
+                    UpdateSequenceNum = table.Column<int>(nullable: false),
+                    is_active = table.Column<bool>(nullable: false),
+                    create_time = table.Column<DateTime>(nullable: false),
+                    modified_time = table.Column<DateTime>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EvernoteTags", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -1299,6 +1317,9 @@ namespace DgKMS.Cube.Migrations
 
             migrationBuilder.DropTable(
                 name: "AbpWebhookSubscriptions");
+
+            migrationBuilder.DropTable(
+                name: "EvernoteTags");
 
             migrationBuilder.DropTable(
                 name: "AbpEntityDynamicParameters");
