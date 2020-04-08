@@ -1,6 +1,8 @@
 
 
 using Abp.Domain.Repositories;
+using Abp.Domain.Services;
+using dgEvernote.Core;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -26,7 +28,40 @@ namespace DgKMS.Cube.CubeCore.Domain
 			_evernoteTagRepository =  evernoteTagRepository;
 		}
 
-		 #region 查询判断的业务
+
+        #region MyRegion
+
+        public async Task<IEnumerable<EvernoteTag>> LoadAsync(EvernoteTag entity)
+        {
+            var remoteList=NoteManager.GetListTags();
+            entity.Id = await _evernoteTagRepository.InsertAndGetIdAsync(entity);
+            var tagList= new List<EvernoteTag>();
+            if (remoteList.Any())
+            {
+                //tagList= remoteList.ToList().Select
+                //tagList = remoteList.ToList().ForEach(x =>
+                // {
+
+                // });
+
+            var query = from m in remoteList
+                        select new EvernoteTag
+                        {
+                            Guid = m.Guid,
+                            Name=m.Name,
+                            ParentGuid=m.ParentGuid,
+                            UpdateSequenceNum=m.UpdateSequenceNum
+
+                        };
+                var result = query.ToList() as ICollection<EvernoteTag>;
+                return result;
+            }
+            return tagList;
+        }
+
+        #endregion
+
+        #region 查询判断的业务
 
         /// <summary>
         /// 返回表达式数的实体信息即IQueryable类型

@@ -1,4 +1,5 @@
 ﻿using Evernote.EDAM.NoteStore;
+using Evernote.EDAM.Type;
 using EvernoteSDK;
 using EvernoteSDK.Advanced;
 using Newtonsoft.Json;
@@ -119,6 +120,19 @@ namespace dgEvernote.Core
             }
             Console.WriteLine("Hello World!");
         }
+
+        public static IEnumerable<Tag> GetListTags()
+        {
+            //ENSessionAdvanced.SharedSession.Startup();
+            ENNoteStoreClient store =
+             //ENNoteStoreClient.NoteStoreClient("https://sandbox.evernote.com/shard/s1/notestore", "S=s1:U=94d05:E=1787845f5a9:C=1712094c950:P=1cd:A=en-devtoken:V=2:H=a0cde57efad83817e20eb310c9ff5830");
+             ENSessionAdvanced.SharedSession.PrimaryNoteStore;//.BusinessNoteStore;
+            //Note resultNote = store.CreateNote(myNote);
+            var list = store.ListTags();
+
+            return list;
+        }
+
 
         internal static ENNoteStoreClient NoteStoreClient(string url, string authenticationToken)
         {
