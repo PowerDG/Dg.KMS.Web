@@ -1,6 +1,6 @@
 ﻿using Abp.Runtime.Validation;
 
-namespace PartyService.Host.Models.PageDto
+namespace DgKMS.Cube.PageDto
 {
     public class PartyPagedInput : PagedSortedAndFilteredInputDto, IGroupByRequest, IShouldNormalize
     {

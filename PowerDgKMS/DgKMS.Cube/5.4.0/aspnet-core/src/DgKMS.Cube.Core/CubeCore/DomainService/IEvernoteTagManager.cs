@@ -11,7 +11,8 @@ namespace DgKMS.Cube.CubeCore.Domain
     public interface IEvernoteTagManager : IDomainService
     {
 
-
+		Task<IEnumerable<EvernoteTag>> LoadRemoteListAsync();
+		Task<IEnumerable<EvernoteTag>> LoadAndShowListAsync();
 		/// <summary>
 		/// 返回表达式数的实体信息即IQueryable类型
 		/// </summary>
@@ -30,13 +31,13 @@ namespace DgKMS.Cube.CubeCore.Domain
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
-		Task<EvernoteTag> FindByIdAsync(ulong id);
+		Task<EvernoteTag> FindByIdAsync(uint id);
 	
 		/// <summary>
 		/// 检查实体是否存在
 		/// </summary>
 		/// <returns></returns>
-		Task<bool> IsExistAsync(ulong id);
+		Task<bool> IsExistAsync(uint id);
 
 
 		/// <summary>
@@ -58,25 +59,26 @@ namespace DgKMS.Cube.CubeCore.Domain
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
-		Task DeleteAsync(ulong id);
+		Task DeleteAsync(uint id);
 		/// <summary>
 		/// 批量删除
 		/// </summary>
 		/// <param name="input">Id的集合</param>
 		/// <returns></returns>
-		Task BatchDelete(List<ulong> input);
-
-
+		Task BatchDelete(List<uint> input);
 		
-							//// custom codes
-									
-							
 
-							//// custom codes end
 
-		 
-      
-         
 
-    }
+		//// custom codes
+
+
+
+		//// custom codes end
+
+
+
+
+
+	}
 }

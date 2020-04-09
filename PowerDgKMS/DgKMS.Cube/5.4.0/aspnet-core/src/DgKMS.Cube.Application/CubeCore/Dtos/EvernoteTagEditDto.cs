@@ -22,14 +22,7 @@ namespace  DgKMS.Cube.CubeCore.Dtos
         public ulong? Id { get; set; }         
 
 
-        
-		/// <summary>
-		/// Id
-		/// </summary>
-		public ulong?? Id { get; set; }
-
-
-
+          
 		/// <summary>
 		/// Guid
 		/// </summary>

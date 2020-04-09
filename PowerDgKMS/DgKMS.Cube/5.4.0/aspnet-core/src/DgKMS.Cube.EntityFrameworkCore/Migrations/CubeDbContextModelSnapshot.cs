@@ -1513,10 +1513,9 @@ namespace DgKMS.Cube.Migrations
 
             modelBuilder.Entity("DgKMS.Cube.CubeCore.EvernoteTag", b =>
                 {
-                    b.Property<decimal>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("id")
-                        .HasColumnType("numeric(20,0)");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreationTime")
                         .HasColumnName("create_time")

@@ -1,12 +1,49 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Abp.Auditing;
+using Abp.Domain.Repositories;
+using DgKMS.Cube.CubeCore;
+using DgKMS.Cube.CubeCore.Domain;
 using DgKMS.Cube.Sessions.Dto;
 
 namespace DgKMS.Cube.Sessions
 {
     public class SessionAppService : CubeAppServiceBase, ISessionAppService
     {
+
+        private readonly IRepository<EvernoteTag, uint> _evernoteTagRepository;
+
+        //private readonly IEvernoteTagListExcelExporter _evernoteTagListExcelExporter;   
+
+        private readonly IEvernoteTagManager _evernoteTagManager;
+
+        private readonly EvernoteTagManager _manager;
+        public SessionAppService(
+             //IRepository<EvernoteTag, ulong> evernoteTagRepository
+             //, IEvernoteTagManager evernoteTagManager
+             //,EvernoteTagListExcelExporter evernoteTagListExcelExporter
+               EvernoteTagManager manager
+             )
+        {
+            //_evernoteTagRepository = evernoteTagRepository;
+            //_evernoteTagManager = evernoteTagManager; ;
+            //_evernoteTagListExcelExporter = evernoteTagListExcelExporter;
+            _manager = manager;
+
+        }
+
+        public async Task<List<EvernoteTag>> LoadAndShowListAsync()
+        {
+            var c = await _manager.LoadAndShowListAsync();
+            return c.ToList();
+        }
+
+        public async Task<List<EvernoteTag>> LoadRemoteListAsync()
+        {
+            var c = await _manager.LoadRemoteListAsync();
+            return c.ToList();
+        }
         [DisableAuditing]
         public async Task<GetCurrentLoginInformationsOutput> GetCurrentLoginInformations()
         {

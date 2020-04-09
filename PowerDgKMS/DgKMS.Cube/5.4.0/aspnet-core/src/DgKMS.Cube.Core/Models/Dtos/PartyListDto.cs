@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DgKMS.Cube.Models;
+using System;
 using System.Collections.Generic;
 
 namespace DgKMS.Cube

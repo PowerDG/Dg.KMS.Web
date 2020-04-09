@@ -7,7 +7,7 @@ using Abp.Domain.Entities.Auditing;
 using System.ComponentModel.DataAnnotations;
 using DgKMS.Cube.CubeCore;
 using System.Collections.ObjectModel;
-
+using Abp.Domain.Entities;
 
 namespace DgKMS.Cube.CubeCore.Dtos
 {	
@@ -22,7 +22,7 @@ namespace DgKMS.Cube.CubeCore.Dtos
 		/// <summary>
 		/// Id
 		/// </summary>
-		public ulong?? Id { get; set; }
+		public ulong?  Id { get; set; }
 
 
 

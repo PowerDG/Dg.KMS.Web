@@ -15,27 +15,43 @@ namespace DgKMS.Cube.CubeCore.Domain
     /// <summary>
     /// 领域服务层一个模块的核心业务逻辑
     ///</summary>
-    public class EvernoteTagManager : DomainService, IEvernoteTagManager
+    public class EvernoteTagManager :  IEvernoteTagManager
     {
 		
-		private readonly IRepository<EvernoteTag,ulong> _evernoteTagRepository;
+		private readonly IRepository<EvernoteTag, uint> _evernoteTagRepository;
 
 		/// <summary>
 		/// EvernoteTag的构造方法
 		/// 通过构造函数注册服务到依赖注入容器中
 		///</summary>
-	public EvernoteTagManager(IRepository<EvernoteTag, ulong> evernoteTagRepository)	{
+	public EvernoteTagManager(IRepository<EvernoteTag, uint> evernoteTagRepository)	{
 			_evernoteTagRepository =  evernoteTagRepository;
 		}
 
 
         #region MyRegion
-
-        public async Task<IEnumerable<EvernoteTag>> LoadAsync(EvernoteTag entity)
+        public async Task<IEnumerable<EvernoteTag>> LoadAndShowListAsync()
         {
-            var remoteList=NoteManager.GetListTags();
-            entity.Id = await _evernoteTagRepository.InsertAndGetIdAsync(entity);
-            var tagList= new List<EvernoteTag>();
+            var list = await LoadRemoteListAsync();
+            //await list.ForEachAsync(async x =>
+            //{
+            //    await CreateAsync(x);
+            //});
+            list.ToList().ForEach(async entity =>
+            {
+                //entity.Id = null;
+                //entity.Id = null;
+                await _evernoteTagRepository.InsertAsync(entity);
+            });
+            return list.OrderBy(x => x.Guid).TakeLast(50);
+        }
+
+
+        public async Task<IEnumerable<EvernoteTag>> LoadRemoteListAsync( )
+        {
+            var remoteList = NoteManager.GetListTags();
+            //entity.Id = await _evernoteTagRepository.InsertAndGetIdAsync(entity);
+            var tagList = new List<EvernoteTag>();
             if (remoteList.Any())
             {
                 //tagList= remoteList.ToList().Select
@@ -44,21 +60,19 @@ namespace DgKMS.Cube.CubeCore.Domain
 
                 // });
 
-            var query = from m in remoteList
-                        select new EvernoteTag
-                        {
-                            Guid = m.Guid,
-                            Name=m.Name,
-                            ParentGuid=m.ParentGuid,
-                            UpdateSequenceNum=m.UpdateSequenceNum
-
-                        };
+                var query = from m in remoteList
+                            select new EvernoteTag
+                            {
+                                Guid = m.Guid,
+                                Name = m.Name,
+                                ParentGuid = m.ParentGuid,
+                                UpdateSequenceNum = m.UpdateSequenceNum
+                            };
                 var result = query.ToList() as ICollection<EvernoteTag>;
                 return result;
             }
             return tagList;
         }
-
         #endregion
 
         #region 查询判断的业务
@@ -86,7 +100,7 @@ namespace DgKMS.Cube.CubeCore.Domain
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<EvernoteTag> FindByIdAsync(ulong id)
+        public async Task<EvernoteTag> FindByIdAsync(uint id)
         {
             var entity = await _evernoteTagRepository.GetAsync(id);
             return entity;
@@ -97,7 +111,7 @@ namespace DgKMS.Cube.CubeCore.Domain
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<bool> IsExistAsync(ulong id)
+        public async Task<bool> IsExistAsync(uint id)
         {
             var result = await _evernoteTagRepository.GetAll().AnyAsync(a => a.Id == id);
             return result;
@@ -118,7 +132,7 @@ namespace DgKMS.Cube.CubeCore.Domain
             await _evernoteTagRepository.UpdateAsync(entity);
         }
 
-        public async Task DeleteAsync(ulong id)
+        public async Task DeleteAsync(uint id)
         {
             //TODO:删除前的逻辑判断，是否允许删除
             await _evernoteTagRepository.DeleteAsync(id);
@@ -129,10 +143,10 @@ namespace DgKMS.Cube.CubeCore.Domain
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public async Task BatchDelete(List<ulong> input)
+        public async Task BatchDelete(List<uint> input)
         {
             //TODO:删除前的逻辑判断，是否允许删除
-            await _evernoteTagRepository.DeleteAsync(a => input.Contains(a.Id??0));
+            await _evernoteTagRepository.DeleteAsync(a => input.Contains(a.Id));
         }
 	 
 			

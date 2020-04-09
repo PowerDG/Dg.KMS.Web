@@ -4,7 +4,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PartyService.Host.Models
+namespace DgKMS.Cube.Models
 {
     [Table("fund")]
     public class FundModel : Entity<long>, IHasCreationTime, IHasModificationTime

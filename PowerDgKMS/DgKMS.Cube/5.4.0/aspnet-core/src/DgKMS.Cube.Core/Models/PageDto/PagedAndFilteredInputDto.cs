@@ -5,7 +5,7 @@ namespace DgKMS.Cube.PageDto
 {
     public class PagedAndFilteredInputDto : IPagedResultRequest
     {
-        [Range(1, PartyServiceHostConsts.MaxPageSize)]
+        //[Range(1, PartyServiceHostConsts.MaxPageSize)]
         public int MaxResultCount { get; set; }
 
         [Range(0, int.MaxValue)]
@@ -15,7 +15,7 @@ namespace DgKMS.Cube.PageDto
 
         public PagedAndFilteredInputDto()
         {
-            MaxResultCount = PartyServiceHostConsts.DefaultPageSize;
+            //MaxResultCount = PartyServiceHostConsts.DefaultPageSize;
         }
     }
 }

@@ -11,6 +11,11 @@
     <RootNamespace>DgKMS.Cube</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="CubeCore\**" />
+    <EmbeddedResource Remove="CubeCore\**" />
+    <None Remove="CubeCore\**" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\DgKMS.Cube.Core\DgKMS.Cube.Core.csproj" />
   </ItemGroup>
 </Project>

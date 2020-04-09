@@ -1,4 +1,5 @@
 ﻿using Abp.AutoMapper;
+using DgKMS.Cube.Models;
 using System;
 using System.ComponentModel.DataAnnotations;
 

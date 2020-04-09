@@ -447,7 +447,7 @@ namespace DgKMS.Cube.Migrations
                 name: "EvernoteTags",
                 columns: table => new
                 {
-                    id = table.Column<decimal>(nullable: false),
+                    Id = table.Column<long>(nullable: false),
                     Guid = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     ParentGuid = table.Column<string>(nullable: true),
@@ -458,7 +458,7 @@ namespace DgKMS.Cube.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EvernoteTags", x => x.id);
+                    table.PrimaryKey("PK_EvernoteTags", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(

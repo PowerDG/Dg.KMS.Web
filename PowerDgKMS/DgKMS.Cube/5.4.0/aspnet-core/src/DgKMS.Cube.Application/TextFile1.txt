@@ -1,0 +1,36 @@
+﻿System.NotSupportedException
+  HResult=0x80131515
+  Message=Value generation is not supported for property 'EvernoteTag.Id' because it has a 'CastingConverter<ulong, decimal>' converter configured. Configure the property to not use value generation using 'ValueGenerated.Never' or 'DatabaseGeneratedOption.None' and specify explicit values instead.
+  Source=Microsoft.EntityFrameworkCore
+  StackTrace:
+   at Microsoft.EntityFrameworkCore.ValueGeneration.ValueGeneratorSelector.CreateFromFactory(IProperty property, IEntityType entityType)
+   at Microsoft.EntityFrameworkCore.ValueGeneration.ValueGeneratorSelector.<Select>b__6_0(IProperty p, IEntityType t)
+   at Microsoft.EntityFrameworkCore.ValueGeneration.ValueGeneratorCache.<>c.<GetOrAdd>b__3_0(CacheKey ck)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.EntityFrameworkCore.ValueGeneration.ValueGeneratorCache.GetOrAdd(IProperty property, IEntityType entityType, Func`3 factory)
+   at Microsoft.EntityFrameworkCore.ValueGeneration.ValueGeneratorSelector.Select(IProperty property, IEntityType entityType)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.ValueGeneration.Internal.NpgsqlValueGeneratorSelector.Select(IProperty property, IEntityType entityType)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.ValueGenerationManager.Generate(InternalEntityEntry entry)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.InternalEntityEntry.SetEntityState(EntityState entityState, Boolean acceptChanges, Boolean modifyProperties, Nullable`1 forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.PaintAction(EntityEntryGraphNode`1 node)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityEntryGraphIterator.TraverseGraph[TState](EntityEntryGraphNode`1 node, Func`2 handleNode)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.EntityGraphAttacher.AttachGraph(InternalEntityEntry rootEntry, EntityState targetState, EntityState storeGeneratedWithKeySetTargetState, Boolean forceStateWhenUnknownKey)
+   at Microsoft.EntityFrameworkCore.DbContext.SetEntityState(InternalEntityEntry entry, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.DbContext.SetEntityState[TEntity](TEntity entity, EntityState entityState)
+   at Microsoft.EntityFrameworkCore.DbContext.Add[TEntity](TEntity entity)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Add(TEntity entity)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.Insert(TEntity entity)
+   at Abp.EntityFrameworkCore.Repositories.EfCoreRepositoryBase`3.InsertAsync(TEntity entity)
+   at Castle.Proxies.Invocations.IRepository`2_InsertAsync_25.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.DynamicProxy.AbstractInvocation.ProceedInfo.Invoke()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.<InternalInterceptAsynchronous>d__5`1.MoveNext()
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at DgKMS.Cube.CubeCore.Domain.EvernoteTagManager.<<LoadAndShowListAsync>b__2_0>d.MoveNext() in E:\devDg\Dg.KMS.Web\PowerDgKMS\DgKMS.Cube\5.4.0\aspnet-core\src\DgKMS.Cube.Core\CubeCore\DomainService\EvernoteTagManager.cs:line 43
+
+  此异常最初是在此调用堆栈中引发的: 
+    [外部代码]
+    DgKMS.Cube.CubeCore.Domain.EvernoteTagManager.LoadAndShowListAsync.AnonymousMethod__2_0(DgKMS.Cube.CubeCore.EvernoteTag) (位于 EvernoteTagManager.cs 中)

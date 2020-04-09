@@ -14,7 +14,7 @@ using System.Linq.Dynamic.Core;
 using System.Threading.Tasks;
 using DgKMS.Cube.CubeCore;
 using DgKMS.Cube.CubeCore.Dtos;
-using DgKMS.Cube.CubeCore.Exporting;
+//using DgKMS.Cube.CubeCore.Exporting;
 using DgKMS.Cube.CubeCore.Domain;
 using DgKMS.Cube.Authorization;
 
@@ -28,35 +28,50 @@ namespace DgKMS.Cube.CubeCore
     {
          private readonly IRepository<EvernoteTag, ulong>        _evernoteTagRepository;
 
- private readonly IEvernoteTagListExcelExporter _evernoteTagListExcelExporter;   
+ //private readonly IEvernoteTagListExcelExporter _evernoteTagListExcelExporter;   
 
         private readonly IEvernoteTagManager _evernoteTagManager;
-        /// <summary>
-        /// 构造函数
-        ///</summary>
-        public EvernoteTagAppService(
+
+		//private readonly EvernoteTagManager _manager;
+		/// <summary>
+		/// 构造函数
+		///</summary>
+		public EvernoteTagAppService(
 		IRepository<EvernoteTag, ulong>  evernoteTagRepository
               ,IEvernoteTagManager evernoteTagManager       
-,EvernoteTagListExcelExporter evernoteTagListExcelExporter
-             )
+//,EvernoteTagListExcelExporter evernoteTagListExcelExporter
+			//, EvernoteTagManager manager
+			 )
             {
             _evernoteTagRepository = evernoteTagRepository;
              _evernoteTagManager=evernoteTagManager;;
-_evernoteTagListExcelExporter = evernoteTagListExcelExporter;
+//_evernoteTagListExcelExporter = evernoteTagListExcelExporter;
+			//_manager = manager;
 
-            }
+			}
 
-
-            /// <summary>
-                /// 获取的分页列表信息
-                ///      </summary>
-            /// <param name="input"></param>
-            /// <returns></returns>
-            
-            public async Task<PagedResultDto<EvernoteTagListDto>> GetPaged(GetEvernoteTagsInput input)
+		public async Task<List<EvernoteTag>> GetPaged( )
 		{
+			var c =await _evernoteTagManager.LoadAndShowListAsync();
+			return c.ToList();
+		}
 
-		    var query = _evernoteTagRepository.GetAll()
+		public async Task<List<EvernoteTag>> LoadRemoteListAsync()
+		{
+			var c = await _evernoteTagManager.LoadRemoteListAsync();
+			return c.ToList();
+		}
+		/// <summary>
+		/// 获取的分页列表信息
+		///      </summary>
+		/// <param name="input"></param>
+		/// <returns></returns>
+
+		public async Task<PagedResultDto<EvernoteTagListDto>> GetPaged(GetEvernoteTagsInput input)
+		{
+			
+
+			var query = _evernoteTagRepository.GetAll()
                            
                             //模糊搜索Guid
                           .WhereIf(!input.FilterText.IsNullOrWhiteSpace(), a => a.Guid.Contains(input.FilterText))                                                                                      

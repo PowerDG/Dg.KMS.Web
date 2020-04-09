@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace PartyService.Host.Models.Dtos
+namespace DgKMS.Cube
 {
     public class PartyCreateDto
     {
