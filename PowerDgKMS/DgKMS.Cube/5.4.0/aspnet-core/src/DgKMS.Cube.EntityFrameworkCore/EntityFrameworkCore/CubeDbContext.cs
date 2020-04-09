@@ -12,6 +12,9 @@ namespace DgKMS.Cube.EntityFrameworkCore
         /* Define a DbSet for each entity of the application */
 
         public DbSet<EvernoteTag> EvernoteTags { get; set; }
+
+        public DbSet<CubeTag> CubeTags { get; set; }
+        
         public CubeDbContext(DbContextOptions<CubeDbContext> options)
             : base(options)
         {
