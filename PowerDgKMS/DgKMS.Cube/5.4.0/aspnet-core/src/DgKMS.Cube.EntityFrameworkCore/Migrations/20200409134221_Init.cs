@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DgKMS.Cube.Migrations
 {
-    public partial class EvernoteTag : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -447,7 +447,8 @@ namespace DgKMS.Cube.Migrations
                 name: "EvernoteTags",
                 columns: table => new
                 {
-                    Id = table.Column<long>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Guid = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     ParentGuid = table.Column<string>(nullable: true),

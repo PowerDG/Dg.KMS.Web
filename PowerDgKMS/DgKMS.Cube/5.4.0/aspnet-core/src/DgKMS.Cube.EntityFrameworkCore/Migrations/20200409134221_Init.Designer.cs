@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DgKMS.Cube.Migrations
 {
     [DbContext(typeof(CubeDbContext))]
-    [Migration("20200408172651_EvernoteTag")]
-    partial class EvernoteTag
+    [Migration("20200409134221_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1515,9 +1515,10 @@ namespace DgKMS.Cube.Migrations
 
             modelBuilder.Entity("DgKMS.Cube.CubeCore.EvernoteTag", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<DateTime>("CreationTime")
                         .HasColumnName("create_time")

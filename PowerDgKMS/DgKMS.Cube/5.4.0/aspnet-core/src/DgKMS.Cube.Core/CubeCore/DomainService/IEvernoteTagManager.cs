@@ -31,13 +31,13 @@ namespace DgKMS.Cube.CubeCore.Domain
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
-		Task<EvernoteTag> FindByIdAsync(uint id);
+		Task<EvernoteTag> FindByIdAsync(int id);
 	
 		/// <summary>
 		/// 检查实体是否存在
 		/// </summary>
 		/// <returns></returns>
-		Task<bool> IsExistAsync(uint id);
+		Task<bool> IsExistAsync(int id);
 
 
 		/// <summary>
@@ -59,13 +59,13 @@ namespace DgKMS.Cube.CubeCore.Domain
 		/// </summary>
 		/// <param name="id"></param>
 		/// <returns></returns>
-		Task DeleteAsync(uint id);
+		Task DeleteAsync(int id);
 		/// <summary>
 		/// 批量删除
 		/// </summary>
 		/// <param name="input">Id的集合</param>
 		/// <returns></returns>
-		Task BatchDelete(List<uint> input);
+		Task BatchDelete(List<int> input);
 		
 
 

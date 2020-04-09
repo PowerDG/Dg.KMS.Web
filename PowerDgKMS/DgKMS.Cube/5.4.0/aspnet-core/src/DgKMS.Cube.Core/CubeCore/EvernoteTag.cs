@@ -8,11 +8,11 @@ using System.Text;
 
 namespace DgKMS.Cube.CubeCore
 {
-    public class EvernoteTag : Entity<uint>, IPassivable, IHasCreationTime, IHasModificationTime
+    public class EvernoteTag : Entity<int>, IPassivable, IHasCreationTime, IHasModificationTime
     {
 
         //[Column("id")]
-        public new uint Id { get; set; }
+        public  int Id { get; set; }
         //[Column("id")]
         //[Key]
         //[DatabaseGenerated(DatabaseGeneratedOption.Computed)]

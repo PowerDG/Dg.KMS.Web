@@ -12,7 +12,7 @@ namespace DgKMS.Cube.Sessions
     public class SessionAppService : CubeAppServiceBase, ISessionAppService
     {
 
-        private readonly IRepository<EvernoteTag, uint> _evernoteTagRepository;
+        private readonly IRepository<EvernoteTag, int> _evernoteTagRepository;
 
         //private readonly IEvernoteTagListExcelExporter _evernoteTagListExcelExporter;   
 

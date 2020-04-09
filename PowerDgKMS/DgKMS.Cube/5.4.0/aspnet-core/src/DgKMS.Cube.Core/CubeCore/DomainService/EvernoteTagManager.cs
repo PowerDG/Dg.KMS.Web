@@ -18,13 +18,13 @@ namespace DgKMS.Cube.CubeCore.Domain
     public class EvernoteTagManager :  IEvernoteTagManager
     {
 		
-		private readonly IRepository<EvernoteTag, uint> _evernoteTagRepository;
+		private readonly IRepository<EvernoteTag, int> _evernoteTagRepository;
 
 		/// <summary>
 		/// EvernoteTag的构造方法
 		/// 通过构造函数注册服务到依赖注入容器中
 		///</summary>
-	public EvernoteTagManager(IRepository<EvernoteTag, uint> evernoteTagRepository)	{
+	public EvernoteTagManager(IRepository<EvernoteTag, int> evernoteTagRepository)	{
 			_evernoteTagRepository =  evernoteTagRepository;
 		}
 
@@ -100,7 +100,7 @@ namespace DgKMS.Cube.CubeCore.Domain
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<EvernoteTag> FindByIdAsync(uint id)
+        public async Task<EvernoteTag> FindByIdAsync(int id)
         {
             var entity = await _evernoteTagRepository.GetAsync(id);
             return entity;
@@ -111,7 +111,7 @@ namespace DgKMS.Cube.CubeCore.Domain
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<bool> IsExistAsync(uint id)
+        public async Task<bool> IsExistAsync(int id)
         {
             var result = await _evernoteTagRepository.GetAll().AnyAsync(a => a.Id == id);
             return result;
@@ -132,7 +132,7 @@ namespace DgKMS.Cube.CubeCore.Domain
             await _evernoteTagRepository.UpdateAsync(entity);
         }
 
-        public async Task DeleteAsync(uint id)
+        public async Task DeleteAsync(int id)
         {
             //TODO:删除前的逻辑判断，是否允许删除
             await _evernoteTagRepository.DeleteAsync(id);
@@ -143,7 +143,7 @@ namespace DgKMS.Cube.CubeCore.Domain
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public async Task BatchDelete(List<uint> input)
+        public async Task BatchDelete(List<int> input)
         {
             //TODO:删除前的逻辑判断，是否允许删除
             await _evernoteTagRepository.DeleteAsync(a => input.Contains(a.Id));
