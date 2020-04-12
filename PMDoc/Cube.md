@@ -140,6 +140,8 @@ DOM 以树结构表达 HTML 文档。
 | getAttribute()           | 返回指定的属性值。                                           |
 | setAttribute()           | 把指定属性设置或修改为指定的值。                             |
 
+## JavaScript 和 HTML DOM [参考手册](https://www.runoob.com/jsref/jsref-tutorial.html)
+
 # Block
 
 # Paper
