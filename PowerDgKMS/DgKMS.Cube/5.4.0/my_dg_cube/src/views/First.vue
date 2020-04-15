@@ -1,12 +1,19 @@
 <template>
-  <a-tree
-    class="draggable-tree"
-    :defaultExpandedKeys="expandedKeys"
-    draggable
-    @dragenter="onDragEnter"
-    @drop="onDrop"
-    :treeData="gData"
-  />
+  <div>
+    <div class="first-app">
+      <ColorTag text="zhuce" @message="getMeaasage"></ColorTag>
+    </div>
+    <div class="first-app">{{msg}}</div>
+
+    <a-tree
+      class="draggable-tree"
+      :defaultExpandedKeys="expandedKeys"
+      draggable
+      @dragenter="onDragEnter"
+      @drop="onDrop"
+      :treeData="gData"
+    />
+  </div>
 </template>
 
 <script>
@@ -16,7 +23,7 @@ const z = 1;
 const gData = [];
 
 const generateData = (_level, _preKey, _tns) => {
-  const preKey = _preKey || '0';
+  const preKey = _preKey || "0";
   const tns = _tns || gData;
 
   const children = [];
@@ -37,11 +44,16 @@ const generateData = (_level, _preKey, _tns) => {
   });
 };
 generateData(z);
+import ColorTag from "../components/ColorTag";
 export default {
+  components: {
+    ColorTag
+  },
   data() {
     return {
       gData,
-      expandedKeys: ['0-0', '0-0-0', '0-0-0-0'],
+      expandedKeys: ["0-0", "0-0-0", "0-0-0-0"],
+      msg: "Welcome To FirstApp"
     };
   },
   methods: {
@@ -50,12 +62,18 @@ export default {
       // expandedKeys 需要受控时设置
       // this.expandedKeys = info.expandedKeys
     },
+    getMeaasage(val) {
+      alert(val);
+      
+      // alert(getMeaasage);
+    },
     onDrop(info) {
       console.log(info);
       const dropKey = info.node.eventKey;
       const dragKey = info.dragNode.eventKey;
-      const dropPos = info.node.pos.split('-');
-      const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]);
+      const dropPos = info.node.pos.split("-");
+      const dropPosition =
+        info.dropPosition - Number(dropPos[dropPos.length - 1]);
       const loop = (data, key, callback) => {
         data.forEach((item, index, arr) => {
           if (item.key === key) {
@@ -105,7 +123,7 @@ export default {
         }
       }
       this.gData = data;
-    },
-  },
+    }
+  }
 };
 </script>

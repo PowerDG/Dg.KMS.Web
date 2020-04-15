@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="confirm-button">
+      <button @click="getButtonClick">{{text||'确认'}}</button>
+    </div>
     <h4 style="margin-bottom: 16px">Presets:</h4>
     <div>
       <a-tag color="pink">pink</a-tag>
@@ -19,3 +22,18 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name:"confirm-button",
+  pros:["text"],
+  data(){
+    return {
+    msg:true};
+  },
+  methods:{
+getButtonClick()
+{this.$emit("message",this.msg)}
+  }
+};
+</script>
